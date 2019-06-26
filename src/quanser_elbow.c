@@ -1,5 +1,5 @@
-// Quanser Shield
-// Copyright (C) 2018 Francisco Knebel, Luciano Zancan, Rodrigo Dal Ri
+// Quanser Shield v.2
+// Copyright (C) 2019 Francisco Knebel, Luciano Zancan, Rodrigo Dal Ri
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -17,7 +17,7 @@
 /**
  * @author Francisco Knebel, Luciano Zancan, Rodrigo Dal Ri
  * @file quanser_elbow.c
- * @date 11 Dez 2018
+ * @date 26 Jun 2019
  * @brief Detect if end of trajectory of elbow 1 and 2, and shoulder 1 and 2
  */
 

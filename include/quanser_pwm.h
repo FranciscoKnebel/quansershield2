@@ -1,7 +1,7 @@
 /**
  * @file quanser_pwm.h
  * @author Francisco Knebel, Luciano Zancan, Rodrigo Dal Ri
- * @date 11 Dez 2018
+ * @date 26 Jun 2019
  * @brief Module containing PWM helper functions.
  */
 
