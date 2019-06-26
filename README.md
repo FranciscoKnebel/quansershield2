@@ -33,7 +33,7 @@ To change the docs generation configuration, you need to install the `doxygen-gu
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/FranciscoKnebel/micros/tags).
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/FranciscoKnebel/quansershield2/tags).
 
 ## Authors
 
@@ -49,7 +49,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
       <a href="https://github.com/FranciscoKnebel">Francisco Knebel</a>
     </td>
     <td>
-      <a href="https://github.com/FranciscoKnebel/micros/commits?author=FranciscoKnebel">Contributions</a> by FranciscoKnebel
+      <a href="https://github.com/FranciscoKnebel/quansershield2/commits?author=FranciscoKnebel">Contributions</a> by FranciscoKnebel
     </td>
   </tr>
   <tr>
@@ -59,7 +59,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
       <a href="https://github.com/lzancan">Luciano Zancan</a>
     </td>
     <td>
-      <a href="https://github.com/FranciscoKnebel/micros/commits?author=lzancan">Contributions</a> by lzancan
+      <a href="https://github.com/FranciscoKnebel/quansershield2/commits?author=lzancan">Contributions</a> by lzancan
     </td>
   </tr>
   <tr>
@@ -69,12 +69,12 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
       <a href="https://github.com/rodrigodalri">Rodrigo Dal Ri</a>
     </td>
     <td>
-      <a href="https://github.com/FranciscoKnebel/micros/commits?author=rodrigodalri">Contributions</a> by rodrigodalri
+      <a href="https://github.com/FranciscoKnebel/quansershield2/commits?author=rodrigodalri">Contributions</a> by rodrigodalri
     </td>
   </tr>
 </table>
 
-See also the full list of [contributors](https://github.com/FranciscoKnebel/micros/contributors) who participated in this project.
+See also the full list of [contributors](https://github.com/FranciscoKnebel/quansershield2/contributors) who participated in this project.
 
 ## License
 
