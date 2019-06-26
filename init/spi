@@ -1,0 +1,143 @@
+#! /bin/sh
+
+### BEGIN INIT INFO
+# Provides:          
+# Required-Start:    
+# Should-Start:      
+# Required-Stop:     
+# Default-Start:     S
+# Default-Stop:
+# Short-Description: Configures SPI bus
+# Description:       Configures SPI bus
+### END INIT INFO
+
+case "$1" in
+    start|restart|force-reload)
+	# Configures IO10 for SPI #SS
+	#	gpio26=0 (output)
+	#	gpio27=1 (pull-up)
+	#	gpio74=0 (IO10 is GPIO)
+	if [ ! -d /sys/class/gpio/gpio26 ] ; then
+	    echo -n "26" > /sys/class/gpio/export
+	fi
+	echo -n "out" > /sys/class/gpio/gpio26/direction
+	echo -n "0" > /sys/class/gpio/gpio26/value
+	
+	if [ ! -d /sys/class/gpio/gpio27 ] ; then
+	    echo -n "27" > /sys/class/gpio/export
+	fi
+	echo -n "out" > /sys/class/gpio/gpio27/direction
+	echo -n "1" > /sys/class/gpio/gpio27/value
+	
+	if [ ! -d /sys/class/gpio/gpio74 ] ; then
+	    echo -n "74" > /sys/class/gpio/export
+	fi
+	echo -n "0" > /sys/class/gpio/gpio74/value
+	
+	# Configures IO11 for SPI MOSI
+	#	gpio24=0 (output)
+	#	gpio25=input (floating)
+	#	gpio44=1 (IO11 is SPI)
+	#	gpio72=0 (IO11 is SPI)
+	if [ ! -d /sys/class/gpio/gpio24 ] ; then
+	    echo -n "24" > /sys/class/gpio/export
+	fi
+	echo -n "out" > /sys/class/gpio/gpio24/direction
+	echo -n "0" > /sys/class/gpio/gpio24/value
+	
+	if [ ! -d /sys/class/gpio/gpio25 ] ; then
+	    echo -n "25" > /sys/class/gpio/export
+	fi
+	echo -n "in" > /sys/class/gpio/gpio25/direction
+	
+	if [ ! -d /sys/class/gpio/gpio44 ] ; then
+	    echo -n "44" > /sys/class/gpio/export
+	fi
+	echo -n "out" > /sys/class/gpio/gpio44/direction
+	echo -n "1" > /sys/class/gpio/gpio44/value
+	
+	if [ ! -d /sys/class/gpio/gpio72 ] ; then
+	    echo -n "72" > /sys/class/gpio/export
+	fi
+	echo -n "0" > /sys/class/gpio/gpio72/value
+
+	# Configures IO12 for SPI MISO
+	#	gpio42=1 (input)
+	#	gpio43=input (floating)
+	if [ ! -d /sys/class/gpio/gpio42 ] ; then
+	    echo -n "42" > /sys/class/gpio/export
+	fi
+	echo -n "out" > /sys/class/gpio/gpio42/direction
+	echo -n "1" > /sys/class/gpio/gpio42/value
+	
+	if [ ! -d /sys/class/gpio/gpio43 ] ; then
+	    echo -n "43" > /sys/class/gpio/export
+	fi
+	echo -n "in" > /sys/class/gpio/gpio43/direction
+
+	# Configure IO13 for SPI SCLK
+	#	gpio30=0 (output)
+	#	gpio31=0 (pull-down, SCLK mode 0)
+	#	gpio46=1 (IO13 is SPI)
+	if [ ! -d /sys/class/gpio/gpio30 ] ; then
+	    echo -n "30" > /sys/class/gpio/export
+	fi
+	echo -n "out" > /sys/class/gpio/gpio30/direction
+	echo -n "0" > /sys/class/gpio/gpio30/value
+	
+	if [ ! -d /sys/class/gpio/gpio31 ] ; then
+	    echo -n "31" > /sys/class/gpio/export
+	fi
+	echo -n "out" > /sys/class/gpio/gpio31/direction
+	echo -n "0" > /sys/class/gpio/gpio31/value
+	
+	if [ ! -d /sys/class/gpio/gpio46 ] ; then
+	    echo -n "46" > /sys/class/gpio/export
+	fi
+	echo -n "out" > /sys/class/gpio/gpio46/direction
+	echo -n "1" > /sys/class/gpio/gpio46/value
+
+        chgrp spi /dev/spidev1.0
+        chmod g+rw /dev/spidev1.0
+    	;;
+    stop)
+	echo -n "1" > /sys/class/gpio/gpio26/value
+	echo -n "26" > /sys/class/gpio/unexport
+	
+	echo -n "in" > /sys/class/gpio/gpio27/direction
+	
+	echo -n "74" > /sys/class/gpio/unexport
+	
+	echo -n "1" > /sys/class/gpio/gpio24/value
+	echo -n "24" > /sys/class/gpio/unexport
+	
+	echo -n "25" > /sys/class/gpio/unexport
+
+	echo -n "0" > /sys/class/gpio/gpio44/value
+	echo -n "44" > /sys/class/gpio/unexport
+	
+	echo -n "72" > /sys/class/gpio/unexport
+
+	echo -n "42" > /sys/class/gpio/unexport
+
+	echo -n "43" > /sys/class/gpio/unexport
+
+	echo -n "0" > /sys/class/gpio/gpio46/value
+	echo -n "46" > /sys/class/gpio/unexport
+	
+	echo -n "in" > /sys/class/gpio/gpio31/direction
+	echo -n "31" > /sys/class/gpio/unexport
+	
+	echo -n "1" > /sys/class/gpio/gpio30/value
+	echo -n "30" > /sys/class/gpio/unexport
+	;;
+    status)
+	;;
+    *)
+	echo -n "Usage: $0 " 
+	echo "{start|stop|restart|force-reload|status}"
+	exit 1
+	;;
+esac
+
+exit 0
