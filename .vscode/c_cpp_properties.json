@@ -1,0 +1,20 @@
+{
+    "configurations": [
+        {
+            "name": "WSL",
+            "compilerPath": "/usr/bin/gcc",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/include/**"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "intelliSenseMode": "gcc-x64",
+            "cStandard": "c11"
+        }
+    ],
+    "version": 4
+}

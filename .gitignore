@@ -1,1 +1,11 @@
-.
+## Object files
+src/**/*.d
+src/**/*.o
+
+## Compiled Executables
+bin/*
+!bin/.gitkeep
+
+## Compiled libs
+lib/*
+!lib/libgalileo2.a

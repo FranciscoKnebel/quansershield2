@@ -32,7 +32,7 @@ all: lib/lib$(MODULE_LIB).a $(TARGET_LIST)
 
 ## Build target programs, linking main targets with module lib.
 $(TARGET_LIST): % : src/%.o
-	$(CC) -o $@ $^ $(LDFLAGS)
+	$(CC) $(CFLAGS) -o bin/$@ $^ $(LDFLAGS)
 
 ## Build lib of modules into .a file
 lib/lib$(MODULE_LIB).a: $(MODULE_OBJS)
@@ -54,4 +54,4 @@ docs: Doxyfile DoxygenLayout.xml README.md LICENSE.md $(TARGET_LIST)
 	doxygen
 
 send: all
-	scp quanser_* micros@$(BUILD_TARGET):
+	scp bin/quanser_* micros@$(BUILD_TARGET):
