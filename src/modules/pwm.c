@@ -21,7 +21,7 @@
  * @brief Module containing PWM helper functions.
  */
 
-#include <pwm_new.h>
+#include <pwm.h>
 char str[100];
 
 /**

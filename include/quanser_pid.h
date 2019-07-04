@@ -9,7 +9,6 @@
 
 #include <decoder.h>
 #include <pwm.h>
-#include <spi.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>

@@ -15,11 +15,12 @@
 /**
  * @brief Disable the H-bridge, on GPIO38.
  */
-int h_bridge_disable();
-
+int h_bridge_disable_left();
+int h_bridge_disable_right();
 /**
  * @brief Enable the H-bridge, on GPIO38.
  */
-int h_bridge_enable();
+int h_bridge_enable_left();
+int h_bridge_enable_right();
 
 #endif

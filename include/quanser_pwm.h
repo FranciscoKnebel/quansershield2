@@ -9,6 +9,7 @@
 #define QUANSER_PWM_H
 
 #include <pwm.h>
+#include <h_bridge.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>

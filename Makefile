@@ -9,7 +9,7 @@ TARGET_OBJS = $(TARGET_SRCS:.c=.o)
 # List of module files
 # MODULE_LIST contains the space-separated module list.
 # MODULE_SRCS contains the MODULE_LIST items with .c suffix and src/modules prefix.
-MODULE_LIST = decoder pwm spi h_bridge arm
+MODULE_LIST = pwm h_bridge arm
 MODULE_SRCS = $(addsuffix .c, $(addprefix src/modules/, ${MODULE_LIST}))
 MODULE_OBJS = $(MODULE_SRCS:.c=.o)
 MODULE_LIB = shieldmodules

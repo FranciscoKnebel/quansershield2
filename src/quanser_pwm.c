@@ -41,15 +41,14 @@ int main(int argc, char const *argv[]) {
   while (1) {
     usleep(TIME_STEP);
 
+    pwm_set_period(PWM_PERIOD);
+    pwm_set_duty_cycle(duty_cycle);
+    pwm_enable();
+
     if (voltage >= 0) {
-      pwm_set_period(PWM_PERIOD);
-      pwm_set_duty_cycle(duty_cycle);
-      pwm_enable_left();
-    }
-    else {
-      pwm_set_period(PWM_PERIOD);
-      pwm_set_duty_cycle(duty_cycle);
-      pwm_enable_right();
+      h_bridge_enable_left();
+    } else {
+      h_bridge_enable_right();
     }
   }
 

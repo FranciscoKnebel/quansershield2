@@ -24,11 +24,13 @@
 #include <h_bridge.h>
 
 /**
- * @brief Disable the H-bridge, on GPIO38.
+ * @brief Disable the H-bridge, on GPIO.
  */
-int h_bridge_disable() { return pputs("/sys/class/gpio/gpio38/value", "0"); }
+int h_bridge_disable_left() { return pputs("/sys/class/gpio/gpio11/value", "0"); }
+int h_bridge_disable_right() { return pputs("/sys/class/gpio/gpio12/value", "0"); }
 
 /**
- * @brief Enable the H-bridge, on GPIO38.
+ * @brief Enable the H-bridge, on GPIO.
  */
-int h_bridge_enable() { return pputs("/sys/class/gpio/gpio38/value", "1"); }
+int h_bridge_enable_left() { return pputs("/sys/class/gpio/gpio11/value", "1"); }
+int h_bridge_enable_right() { return pputs("/sys/class/gpio/gpio12/value", "1"); }
