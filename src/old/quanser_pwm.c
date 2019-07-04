@@ -22,39 +22,25 @@
  */
 
 #include <quanser_pwm.h>
-#define FREQ_MAX 1500
-#define VOLT_MAX 27
 
 int main(int argc, char const *argv[]) {
-  int voltage = 0;
   int duty_cycle = 0;
-  int period = 0;
 
   if (argc < 2) {
-    fprintf(stderr, "Usage: ./quanser_pwm <voltage> ");
+    fprintf(stderr, "Usage: ./quanser_pwm <duty_cycle> ");
     exit(1);
   }
-  voltage = argv[1]
-  period = (int)((1.0 /FREQ_MAX)*1000000000);
-  duty_cycle = (int)((voltage/VOLT_MAX)*period + 0.5*period);
 
-  666666.666667
-  //sscanf(argv[1], "%d", &duty_cycle);
+  sscanf(argv[1], "%d", &duty_cycle);
 
   while (1) {
     usleep(TIME_STEP);
 
-    if (voltage >= 0) {
-      pwm_set_period(PWM_PERIOD);
-      pwm_set_duty_cycle(duty_cycle);
-      pwm_enable_left();
-    }
-    else {
-      pwm_set_period(PWM_PERIOD);
-      pwm_set_duty_cycle(duty_cycle);
-      pwm_enable_right();
-    }
-
+    pwm_set_period(PWM_PERIOD);
+    pwm_enable();
+    pwm_set_duty_cycle(duty_cycle);
+    usleep(TIME_STEP);
+    pwm_disable();
   }
 
   return 0;

@@ -1,5 +1,8 @@
+# Quanser Shield v.2
+# Copyright (C) 2019 Francisco Knebel, Luciano Zancan, Rodrigo Dal Ri
+
 # Main target programs
-TARGET_LIST = quanser_pid quanser_pwm quanser_motor quanser_elbow
+TARGET_LIST = quanser_pwm
 TARGET_SRCS = $(addsuffix .c, $(addprefix src/, ${TARGET_LIST}))
 TARGET_OBJS = $(TARGET_SRCS:.c=.o)
 
@@ -12,7 +15,7 @@ MODULE_OBJS = $(MODULE_SRCS:.c=.o)
 MODULE_LIB = shieldmodules
 
 # Build target machine to send compiled program
-BUILD_TARGET = galileo2
+BUILD_TARGET = galileo.local
 
 FLAGS=-m32 -O2 -Wall -g -MMD
 INCLUDE=-I. -I./include
