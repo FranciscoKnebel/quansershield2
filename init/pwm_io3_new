@@ -1,0 +1,65 @@
+#! /bin/sh
+
+case "$1" in
+    start|restart|force-reload)
+        # IO3 = pwm1
+	if [ ! -d /sys/class/pwm/pwmchip0/pwm1 ] ; then
+	    echo -n "1" > /sys/class/pwm/pwmchip0/export
+	fi
+	chgrp pwm /sys/class/pwm/pwmchip0/device/pwm_period
+	chmod g+w /sys/class/pwm/pwmchip0/device/pwm_period
+	chgrp pwm /sys/class/pwm/pwmchip0/pwm1/duty_cycle
+	chmod g+w /sys/class/pwm/pwmchip0/pwm1/duty_cycle
+	chgrp pwm /sys/class/pwm/pwmchip0/pwm1/enable
+	chmod g+w /sys/class/pwm/pwmchip0/pwm1/enable
+
+  # gpio16 = 0 = out
+	if [ ! -d /sys/class/gpio/gpio16 ] ; then
+	    echo -n "16" > /sys/class/gpio/export
+	fi
+	echo -n "out" > /sys/class/gpio/gpio16/direction
+	echo -n "0" > /sys/class/gpio/gpio16/value
+
+  # gpio17 = in = no pull-up nor pull-down
+	if [ ! -d /sys/class/gpio/gpio17 ] ; then
+	    echo -n "17" > /sys/class/gpio/export
+	fi
+	echo -n "in" > /sys/class/gpio/gpio17/direction
+
+  # gpio76 = 0
+	if [ ! -d /sys/class/gpio/gpio76 ] ; then
+	    echo -n "76" > /sys/class/gpio/export
+	fi
+	echo -n "0" > /sys/class/gpio/gpio76/value
+
+  # gpio64 = 1 */
+	if [ ! -d /sys/class/gpio/gpio64 ] ; then
+	    echo -n "64" > /sys/class/gpio/export
+	fi
+	echo -n "1" > /sys/class/gpio/gpio64/value
+    	;;
+      stop)
+  echo -n "0" > /sys/class/pwm/pwmchip0/pwm1/enable
+  echo -n "76" > /sys/class/gpio/unexport
+  echo -n "64" > /sys/class/gpio/unexport
+	echo -n "17" > /sys/class/gpio/unexport
+	echo -n "1" > /sys/class/gpio/gpio16/value
+	echo -n "16" > /sys/class/gpio/unexport
+	echo -n "1" > /sys/class/pwm/pwmchip0/unexport
+	;;
+    status)
+  echo -n Period:
+  cat /sys/class/pwm/pwmchip0/device/pwm_period
+  echo -n Duty Cicle:
+  cat /sys/class/pwm/pwmchip0/pwm1/duty_cycle
+  echo -n Enable:
+  cat /sys/class/pwm/pwmchip0/pwm1/enable
+	;;
+    *)
+	echo -n "Usage: $0 "
+	echo "{start|stop|restart|force-reload|status}"
+	exit 1
+	;;
+esac
+
+exit 0

@@ -1,0 +1,30 @@
+case "$1" in
+    start|restart|force-reload)
+      # IO1 = gpio12
+	if [ ! -d /sys/class/gpio/gpio45 ] ; then
+	    echo -n "45" > /sys/class/gpio/export
+	fi
+	echo -n "out" > /sys/class/gpio/gpio45/direction
+	echo -n "0" > /sys/class/gpio/gpio45/value
+
+	if [ ! -d /sys/class/gpio/gpio12 ] ; then
+	    echo -n "12" > /sys/class/gpio/export
+	fi
+	echo -n "out" > /sys/class/gpio/gpio12/direction
+	chgrp gpio /sys/class/gpio/gpio12/value
+	chmod g+rw /sys/class/gpio/gpio12/value
+	;;
+    stop)
+  echo -n "in" > /sys/class/gpio/gpio12/direction
+  echo -n "12" > /sys/class/gpio/unexport
+	echo -n "45" > /sys/class/gpio/unexport
+	;;
+    status)
+    	ls -d /sys/class/gpio/gpio*
+	;;
+    *)
+	echo -n "Usage: $0 "
+	echo "{start|stop|restart|force-reload|status}"
+	exit 1
+	;;
+esac
