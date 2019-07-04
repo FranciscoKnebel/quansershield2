@@ -21,18 +21,18 @@
  * @brief Module containing PWM helper functions.
  */
 
-#include <pwm.h>
+#include <pwm_new.h>
 char str[100];
 
 /**
- * @brief Enable PWM3.
+ * @brief Enable PWM1.
  */
-int pwm_enable() { return pputs("/sys/class/pwm/pwmchip0/pwm3/enable", "1"); }
+int pwm_enable() { return pputs("/sys/class/pwm/pwmchip0/pwm1/enable", "1"); }
 
 /**
- * @brief Disable PWM3.
+ * @brief Disable PWM1.
  */
-int pwm_disable() { return pputs("/sys/class/pwm/pwmchip0/pwm3/enable", "0"); }
+int pwm_disable() { return pputs("/sys/class/pwm/pwmchip0/pwm1/enable", "0"); }
 
 /**
  * @brief Set the period on the PWM device.
@@ -43,10 +43,10 @@ int pwm_set_period(int period) {
 }
 
 /**
- * @brief Set the duty cycle for PWM3.
+ * @brief Set the duty cycle for PWM1.
  */
 int pwm_set_duty_cycle(int duty_cycle) {
   sprintf(str, "%d", duty_cycle);
 
-  return pputs("/sys/class/pwm/pwmchip0/pwm3/duty_cycle", str);
+  return pputs("/sys/class/pwm/pwmchip0/pwm1/duty_cycle", str);
 }
