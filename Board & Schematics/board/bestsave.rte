@@ -1,0 +1,404 @@
+ (routes 
+  (resolution mm 100000)
+  (parser
+  )
+  (parser
+  )
+  (structure_out
+   (layer TOP (type signal)
+   )
+   (layer I1 (type signal)
+   )
+   (layer I2 (type signal)
+   )
+   (layer I3 (type signal)
+   )
+   (layer I4 (type signal)
+   )
+   (layer I5 (type signal)
+   )
+   (layer I6 (type signal)
+   )
+   (layer I7 (type signal)
+   )
+   (layer I8 (type signal)
+   )
+   (layer I9 (type signal)
+   )
+   (layer I10 (type signal)
+   )
+   (layer I11 (type signal)
+   )
+   (layer I12 (type signal)
+   )
+   (layer I13 (type signal)
+   )
+   (layer I14 (type signal)
+   )
+   (layer BOT (type signal)
+   )
+  )
+  (library_out
+  (padstack $VIA#0_SIGNAL
+   (shape (circ TOP 76200 0 0))
+   (shape (circ I1 76200 0 0))
+   (shape (circ I2 76200 0 0))
+   (shape (circ I3 76200 0 0))
+   (shape (circ I4 76200 0 0))
+   (shape (circ I5 76200 0 0))
+   (shape (circ I6 76200 0 0))
+   (shape (circ I7 76200 0 0))
+   (shape (circ I8 76200 0 0))
+   (shape (circ I9 76200 0 0))
+   (shape (circ I10 76200 0 0))
+   (shape (circ I11 76200 0 0))
+   (shape (circ I12 76200 0 0))
+   (shape (circ I13 76200 0 0))
+   (shape (circ I14 76200 0 0))
+   (shape (circ BOT 76200 0 0))
+  )
+  (padstack $VIA#0_POWER
+   (shape (circ TOP 76200 0 0))
+   (shape (circ I1 76200 0 0))
+   (shape (circ I2 76200 0 0))
+   (shape (circ I3 76200 0 0))
+   (shape (circ I4 76200 0 0))
+   (shape (circ I5 76200 0 0))
+   (shape (circ I6 76200 0 0))
+   (shape (circ I7 76200 0 0))
+   (shape (circ I8 76200 0 0))
+   (shape (circ I9 76200 0 0))
+   (shape (circ I10 76200 0 0))
+   (shape (circ I11 76200 0 0))
+   (shape (circ I12 76200 0 0))
+   (shape (circ I13 76200 0 0))
+   (shape (circ I14 76200 0 0))
+   (shape (circ BOT 76200 0 0))
+  )
+  (padstack PS6
+   (shape (circ TOP 254000 0 0))
+   (shape (circ I1 254000 0 0))
+   (shape (circ I2 254000 0 0))
+   (shape (circ I3 254000 0 0))
+   (shape (circ I4 254000 0 0))
+   (shape (circ I5 254000 0 0))
+   (shape (circ I6 254000 0 0))
+   (shape (circ I7 254000 0 0))
+   (shape (circ I8 254000 0 0))
+   (shape (circ I9 254000 0 0))
+   (shape (circ I10 254000 0 0))
+   (shape (circ I11 254000 0 0))
+   (shape (circ I12 254000 0 0))
+   (shape (circ I13 254000 0 0))
+   (shape (circ I14 254000 0 0))
+   (shape (circ BOT 254000 0 0))
+  )
+  )
+  (network_out
+   (Net #00004 
+   (rule
+   )
+   (wire (path BOT 76200  -356500 -3999620 -63500 -3999620 -63500 -2857500)
+    (connect (terminal pin U1-1) (terminal wire))
+   )
+   (wire (path BOT 76200  635000 -2857500 825500 -2857500 825500 -3012000
+     1488000 -3012000)
+    (connect (terminal wire) (terminal pin DECODER-1))
+   )
+   (wire (path BOT 76200  -250000 -2250000 -63500 -2250000 -63500 -2857500)
+    (connect (terminal pin X1-0) (terminal wire))
+   )
+   (wire (path BOT 76200  635000 -2857500 635000 -2413000 643500 -2413000
+     643500 -1995620)
+    (connect (terminal wire) (terminal pin R3-0))
+   )
+   (wire (path BOT 76200  -250000 -2250000 -246000 -2250000 -246000 -1500000)
+    (connect (terminal pin X1-0) (terminal pin C4-1))
+   )
+   (wire (path BOT 76200  635000 -2857500 -63500 -2857500)
+    (connect (terminal wire) (terminal wire))
+   )
+   )
+   (Net #00020 
+   (rule
+   )
+   (wire (path BOT 76200  643500 -3011620 63500 -3011620 63500 -4126620
+     -508000 -4126620 -508000 -3556000)
+    (connect (terminal pin R3-1) (terminal wire))
+   )
+   (wire (path BOT 76200  -508000 -2758000 -508000 -2413000 -750000 -2413000
+     -750000 -1500000)
+    (connect (terminal wire) (terminal pin C5-1))
+   )
+   (wire (path BOT 76200  -356500 -3745620 -356500 -3556000 -508000 -3556000)
+    (connect (terminal pin U1-0) (terminal wire))
+   )
+   (wire (path BOT 76200  -508000 -2758000 -508000 -3556000)
+    (connect (terminal wire) (terminal wire))
+   )
+   (wire (path BOT 76200  -250000 -2758000 -508000 -2758000)
+    (connect (terminal pin X1-1) (terminal wire))
+   )
+   )
+   (Net 5V 
+   (rule
+   )
+   (wire (path BOT 76200  2250000 -3266000 1778000 -3266000 1778000 -2885000
+     1016000 -2885000 1016000 -2857500 952500 -2857500 952500 -1016000
+     -1397000 -1016000 -1397000 -1165121 -1592500 -1165121)
+    (connect (terminal pin DECODER-15) (terminal pin ARDUINO-7))
+   )
+   (wire (path BOT 76200  -1592500 -1165121 -3038481 -1165121 -3038481 512380)
+    (connect (terminal pin ARDUINO-7) (terminal wire))
+   )
+   (wire (path BOT 76200  -3000380 4250380 -3000380 3786466 -3038481 3786466
+     -3038481 512380)
+    (connect (terminal pin J2-0) (terminal wire))
+   )
+   (wire (path BOT 76200  -3038481 512380 -2500000 512380)
+    (connect (terminal wire) (terminal pin D2-3))
+   )
+   )
+   (Net A 
+   (rule
+   )
+   (wire (path BOT 76200  -2500000 766380 1206500 766380 1206500 -1742000
+     1488000 -1742000)
+    (connect (terminal pin D2-2) (terminal pin DECODER-6))
+   )
+   )
+   (Net B 
+   (rule
+   )
+   (wire (path BOT 76200  -2500000 258380 1079500 258380 1079500 -1996000
+     1488000 -1996000)
+    (connect (terminal pin D2-4) (terminal pin DECODER-5))
+   )
+   )
+   (Net D0 
+   (rule
+   )
+   (wire (path BOT 76200  1488000 -3266000 1488000 -3556000 2921000 -3556000
+     2921000 -2943120 3233500 -2943120)
+    (connect (terminal pin DECODER-0) (terminal pin ARDUINO-3))
+   )
+   )
+   (Net D1 
+   (rule
+   )
+   (wire (path BOT 76200  3233500 -2689120 2572880 -2689120 2250000 -3012000)
+    (connect (terminal pin ARDUINO-5) (terminal pin DECODER-14))
+    (type protect)
+   )
+   )
+   (Net D2 
+   (rule
+   )
+   (wire (path BOT 76200  3233500 -2435120 2572880 -2435120 2250000 -2758000)
+    (connect (terminal pin ARDUINO-6) (terminal pin DECODER-13))
+    (type protect)
+   )
+   )
+   (Net D3 
+   (rule
+   )
+   (wire (path BOT 76200  3233500 -2181120 2572880 -2181120 2250000 -2504000)
+    (connect (terminal pin ARDUINO-8) (terminal pin DECODER-12))
+    (type protect)
+   )
+   )
+   (Net D4 
+   (rule
+   )
+   (wire (path BOT 76200  3233500 -1927120 2572880 -1927120 2250000 -2250000)
+    (connect (terminal pin ARDUINO-9) (terminal pin DECODER-11))
+    (type protect)
+   )
+   )
+   (Net D5 
+   (rule
+   )
+   (wire (path BOT 76200  3233500 -1546120 2699880 -1546120 2250000 -1996000)
+    (connect (terminal pin ARDUINO-10) (terminal pin DECODER-10))
+    (type protect)
+   )
+   )
+   (Net D6 
+   (rule
+   )
+   (wire (path BOT 76200  3233500 -1292120 2699880 -1292120 2250000 -1742000)
+    (connect (terminal pin ARDUINO-11) (terminal pin DECODER-9))
+    (type protect)
+   )
+   )
+   (Net D7 
+   (rule
+   )
+   (wire (path BOT 76200  3233500 -1038120 2699880 -1038120 2250000 -1488000)
+    (connect (terminal pin ARDUINO-12) (terminal pin DECODER-8))
+    (type protect)
+   )
+   )
+   (Net EN_LEFT_PWM 
+   (rule
+   )
+   (wire (path BOT 76200  3233500 -3705120 4294880 -3705120 4500000 -3500000)
+    (connect (terminal pin ARDUINO-0) (terminal pin H1-2))
+    (type protect)
+   )
+   )
+   (Net EN_RIGHT_PWM 
+   (rule
+   )
+   (wire (path BOT 76200  3233500 -3451120 4048500 -3451120 4500000 -2999620)
+    (connect (terminal pin ARDUINO-1) (terminal pin H1-1))
+    (type protect)
+   )
+   )
+   (Net GND 
+   (rule
+   )
+   (wire (path BOT 127000  -356500 -5269620 -2770500 -5269620 -2770500 -4217120)
+    (connect (terminal pin U1-6) (terminal pin S1-7))
+   )
+   (wire (path BOT 127000  -2500000 4250380 -2500000 4699000 -3492500 4699000
+     -3492500 -1460500 -2603500 -1460500 -2603500 -1673121)
+    (connect (terminal pin J2-1) (terminal wire))
+   )
+   (wire (path BOT 127000  1488000 -1488000 1488000 -952500 1333500 -952500
+     1333500 0)
+    (connect (terminal pin DECODER-7) (terminal wire))
+   )
+   (wire (path BOT 127000  -2770500 -2439120 -2770500 -1673121 -2603500 -1673121)
+    (connect (terminal pin S1-0) (terminal wire))
+   )
+   (wire (path BOT 127000  -1592500 -1673121 -1397000 -1673121 -1397000 -1500000
+     -1004000 -1500000)
+    (connect (terminal pin ARDUINO-25) (terminal pin C5-0))
+   )
+   (wire (path BOT 127000  -2500000 4250380 -2500000 1274380)
+    (connect (terminal pin J2-1) (terminal pin D2-0))
+   )
+   (wire (path BOT 127000  -2603500 -1673121 -1592500 -1673121)
+    (connect (terminal wire) (terminal pin ARDUINO-25))
+   )
+   (wire (path BOT 127000  -1004000 -1500000 -1004000 -1270000 -500000 -1270000
+     -500000 -1500000)
+    (connect (terminal pin C5-0) (terminal pin C4-0))
+   )
+   (wire (path BOT 127000  -2770500 -2947120 -2770500 -2693120)
+    (connect (terminal pin S1-2) (terminal pin S1-1))
+   )
+   (wire (path BOT 127000  -2770500 -3963120 -2770500 -3709120)
+    (connect (terminal pin S1-6) (terminal pin S1-5))
+   )
+   (wire (path BOT 127000  -2770500 -3201120 -2770500 -2947120)
+    (connect (terminal pin S1-3) (terminal pin S1-2))
+   )
+   (wire (path BOT 127000  -2770500 -3455120 -2770500 -3201120)
+    (connect (terminal pin S1-4) (terminal pin S1-3))
+   )
+   (wire (path BOT 127000  -2770500 -3709120 -2770500 -3455120)
+    (connect (terminal pin S1-5) (terminal pin S1-4))
+   )
+   (wire (path BOT 127000  -2770500 -2693120 -2770500 -2439120)
+    (connect (terminal pin S1-1) (terminal pin S1-0))
+   )
+   (wire (path BOT 127000  -2770500 -4217120 -2770500 -3963120)
+    (connect (terminal pin S1-7) (terminal pin S1-6))
+   )
+   (wire (path BOT 127000  1333500 0 2588518 0 2588518 -22120
+     3233500 -22120)
+    (connect (terminal wire) (terminal pin ARDUINO-26))
+   )
+   (wire (path BOT 127000  1333500 0 1333500 1274380 -2500000 1274380)
+    (connect (terminal wire) (terminal pin D2-0))
+   )
+   )
+   (Net PWM 
+   (rule
+   )
+   (wire (path BOT 76200  3233500 -3197120 3802120 -3197120 4500000 -2499240)
+    (connect (terminal pin ARDUINO-2) (terminal pin H1-0))
+    (type protect)
+   )
+   )
+   (Net SEL 
+   (rule
+   )
+   (wire (path BOT 76200  3233500 -276120 4889500 -276120 4889500 -4000500
+     1206500 -4000500 1206500 -3139000 1651000 -3139000 1651000 -3429000
+     2540000 -3429000 2540000 -3139000 1905000 -3139000 1905000 -2758000
+     1488000 -2758000)
+    (connect (terminal pin ARDUINO-15) (terminal pin DECODER-2))
+   )
+   )
+   (Net S_ELB1 
+   (rule
+   )
+   (wire (path BOT 76200  -2516500 -2947120 -2095500 -2947120 -2095500 -2943121
+     -1592500 -2943121)
+    (connect (terminal pin S1-13) (terminal pin ARDUINO-19))
+   )
+   )
+   (Net S_ELB2 
+   (rule
+   )
+   (wire (path BOT 76200  -2516500 -3201120 -2095500 -3201120 -2095500 -3197121
+     -1592500 -3197121)
+    (connect (terminal pin S1-12) (terminal pin ARDUINO-20))
+   )
+   )
+   (Net S_SH1 
+   (rule
+   )
+   (wire (path BOT 76200  -2516500 -2439120 -2516500 -2435121 -1592500 -2435121)
+    (connect (terminal pin S1-15) (terminal pin ARDUINO-17))
+   )
+   )
+   (Net S_SH2 
+   (rule
+   )
+   (wire (path BOT 76200  -1592500 -2689121 -2032000 -2689121 -2032000 -2693119
+     -2516500 -2693119)
+    (connect (terminal pin ARDUINO-18) (terminal pin S1-14))
+   )
+   )
+   (Net VCC/VDD 
+   (rule
+   )
+   )
+   (Net ~OE 
+   (rule
+   )
+   (wire (path BOT 76200  3233500 -530120 1651000 -530120 1651000 -2504000
+     1488000 -2504000)
+    (connect (terminal pin ARDUINO-14) (terminal pin DECODER-3))
+   )
+   )
+   (Net ~RST 
+   (rule
+   )
+   (wire (path BOT 76200  3233500 -784120 1778000 -784120 1778000 -2631000
+     1333500 -2631000 1333500 -2250000 1488000 -2250000)
+    (connect (terminal pin ARDUINO-13) (terminal pin DECODER-4))
+   )
+   )
+   (Net {NC-1} 
+   (via PS6 -1266500 3794880 (net {NC-1} )
+    (type protect))
+   )
+   (Net {NC-2} 
+   (via PS6 2733500 7794880 (net {NC-2} )
+    (type protect))
+   )
+   (Net {NC-3} 
+   (via PS6 -1266500 7794880 (net {NC-3} )
+    (type protect))
+   )
+   (Net {NC-4} 
+   (via PS6 2733500 3794880 (net {NC-4} )
+    (type protect))
+   )
+  )
+ )
