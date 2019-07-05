@@ -9,3 +9,6 @@ bin/*
 ## Compiled libs
 lib/*
 !lib/libgalileo2.a
+
+## Temp files
+.vscode
