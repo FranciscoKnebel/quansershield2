@@ -57,4 +57,4 @@ docs: Doxyfile DoxygenLayout.xml README.md LICENSE.md $(TARGET_LIST)
 	doxygen
 
 send: all
-	scp bin/quanser_* micros@$(BUILD_TARGET):
+	scp bin/quanser_* root@$(BUILD_TARGET):

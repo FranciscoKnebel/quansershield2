@@ -1,3 +1,5 @@
+#! /bin/sh
+
 case "$1" in
     start|restart|force-reload)
       # IO1 = gpio12

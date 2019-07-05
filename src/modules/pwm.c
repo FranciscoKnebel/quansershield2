@@ -46,7 +46,9 @@ int pwm_set_period(int period) {
  * @brief Set the duty cycle for PWM1.
  */
 int pwm_set_duty_cycle(int duty_cycle) {
+  int x;
   sprintf(str, "%d", duty_cycle);
-
-  return pputs("/sys/class/pwm/pwmchip0/pwm1/duty_cycle", str);
+  printf("%s set \n", str );
+  x = pputs("/sys/class/pwm/pwmchip0/pwm1/duty_cycle", str);
+  return x;
 }

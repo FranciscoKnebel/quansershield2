@@ -26,11 +26,32 @@
 /**
  * @brief Disable the H-bridge, on GPIO.
  */
-int h_bridge_disable_left() { return pputs("/sys/class/gpio/gpio11/value", "0"); }
-int h_bridge_disable_right() { return pputs("/sys/class/gpio/gpio12/value", "0"); }
+int h_bridge_disable_left() {
+  return pputs("/sys/class/gpio/gpio11/value", "0");
+}
+
+int h_bridge_disable_right() {
+  return pputs("/sys/class/gpio/gpio12/value", "0");
+}
 
 /**
  * @brief Enable the H-bridge, on GPIO.
  */
-int h_bridge_enable_left() { return pputs("/sys/class/gpio/gpio11/value", "1"); }
-int h_bridge_enable_right() { return pputs("/sys/class/gpio/gpio12/value", "1"); }
+int h_bridge_enable_left() {
+  h_bridge_disable_right();
+  return pputs("/sys/class/gpio/gpio11/value", "1");
+}
+
+int h_bridge_enable_right() {
+  h_bridge_disable_left();
+  return pputs("/sys/class/gpio/gpio12/value", "1");
+}
+
+int h_bridge_status() {
+  char buffer[2];
+
+  pgets(buffer, 1, "/sys/class/gpio/gpio11/value");
+  pgets(buffer+1, 1, "/sys/class/gpio/gpio12/value");
+
+  printf("H_bridge: right: %c, left: %d\n", buffer[0], buffer[1]);
+}

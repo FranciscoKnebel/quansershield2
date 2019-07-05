@@ -2,7 +2,13 @@
 
 case "$1" in
     start|restart|force-reload)
-        # IO0 = gpio11
+  # IO0 = gpio11
+  if [ ! -d /sys/class/gpio/gpio32 ] ; then
+	    echo -n "32" > /sys/class/gpio/export
+	fi
+  echo -n "out" > /sys/class/gpio/gpio32/direction
+	echo -n "0" > /sys/class/gpio/gpio32/value
+
 	if [ ! -d /sys/class/gpio/gpio11 ] ; then
 	    echo -n "11" > /sys/class/gpio/export
 	fi
