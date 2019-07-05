@@ -1,0 +1,47 @@
+#! /bin/sh
+
+case "$1" in
+    start|restart|force-reload)
+    # IO11 = gpio5
+
+	if [ ! -d /sys/class/gpio/gpio5 ] ; then
+	    echo -n "5" > /sys/class/gpio/export
+	fi
+	echo -n "out" > /sys/class/gpio/gpio5/direction
+	chgrp gpio /sys/class/gpio/gpio5/value
+	chmod g+rw /sys/class/gpio/gpio5/value
+
+  if [ ! -d /sys/class/gpio/gpio24 ] ; then
+	    echo -n "24" > /sys/class/gpio/export
+	fi
+  echo -n "out" > /sys/class/gpio/gpio24/direction
+	echo -n "0" > /sys/class/gpio/gpio24/value
+
+  if [ ! -d /sys/class/gpio/gpio44 ] ; then
+      echo -n "44" > /sys/class/gpio/export
+  fi
+  echo -n "out" > /sys/class/gpio/gpio44/direction
+  echo -n "0" > /sys/class/gpio/gpio44/value
+
+  if [ ! -d /sys/class/gpio/gpio72 ] ; then
+      echo -n "72" > /sys/class/gpio/export
+  fi
+  echo -n "out" > /sys/class/gpio/gpio72/direction
+  echo -n "0" > /sys/class/gpio/gpio72/value
+	;;
+    stop)
+  echo -n "in" > /sys/class/gpio/gpio5/direction
+  echo -n "5" > /sys/class/gpio/unexport
+  echo -n "24" > /sys/class/gpio/unexport
+	echo -n "44" > /sys/class/gpio/unexport
+  echo -n "72" > /sys/class/gpio/unexport
+	;;
+    status)
+    	ls -d /sys/class/gpio/gpio*
+	;;
+    *)
+	echo -n "Usage: $0 "
+	echo "{start|stop|restart|force-reload|status}"
+	exit 1
+	;;
+esac

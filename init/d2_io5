@@ -1,0 +1,42 @@
+#! /bin/sh
+
+case "$1" in
+    start|restart|force-reload)
+    # IO5 = gpio0
+
+	if [ ! -d /sys/class/gpio/gpio0 ] ; then
+	    echo -n "0" > /sys/class/gpio/export
+	fi
+	echo -n "in" > /sys/class/gpio/gpio0/direction
+	chgrp gpio /sys/class/gpio/gpio0/value
+	chmod g+rw /sys/class/gpio/gpio0/value
+
+  if [ ! -d /sys/class/gpio/gpio18 ] ; then
+	    echo -n "18" > /sys/class/gpio/export
+	fi
+  echo -n "in" > /sys/class/gpio/gpio18/direction
+	echo -n "1" > /sys/class/gpio/gpio18/value
+
+  # 66 não tenho certeza se out ou in
+  if [ ! -d /sys/class/gpio/gpio66 ] ; then
+      echo -n "66" > /sys/class/gpio/export
+  fi
+  echo -n "out" > /sys/class/gpio/gpio66/direction
+  echo -n "0" > /sys/class/gpio/gpio66/value
+
+	;;
+    stop)
+  echo -n "out" > /sys/class/gpio/gpio0/direction
+  echo -n "0" > /sys/class/gpio/unexport
+  echo -n "18" > /sys/class/gpio/unexport
+	echo -n "66" > /sys/class/gpio/unexport
+	;;
+    status)
+    	ls -d /sys/class/gpio/gpio*
+	;;
+    *)
+	echo -n "Usage: $0 "
+	echo "{start|stop|restart|force-reload|status}"
+	exit 1
+	;;
+esac
