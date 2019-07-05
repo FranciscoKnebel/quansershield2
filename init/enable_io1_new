@@ -17,8 +17,8 @@ case "$1" in
 	chmod g+rw /sys/class/gpio/gpio12/value
 	;;
     stop)
-  echo -n "in" > /sys/class/gpio/gpio12/direction
-  echo -n "12" > /sys/class/gpio/unexport
+  	echo -n "in" > /sys/class/gpio/gpio12/direction
+  	echo -n "12" > /sys/class/gpio/unexport
 	echo -n "45" > /sys/class/gpio/unexport
 	;;
     status)

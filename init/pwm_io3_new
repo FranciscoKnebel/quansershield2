@@ -2,7 +2,7 @@
 
 case "$1" in
     start|restart|force-reload)
-        # IO3 = pwm1
+	# IO3 = pwm1
 	if [ ! -d /sys/class/pwm/pwmchip0/pwm1 ] ; then
 	    echo -n "1" > /sys/class/pwm/pwmchip0/export
 	fi
