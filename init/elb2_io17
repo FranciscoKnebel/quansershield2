@@ -1,0 +1,25 @@
+#! /bin/sh
+
+case "$1" in
+    start|restart|force-reload)
+  # IO17 = gpio54
+	if [ ! -d /sys/class/gpio/gpio54 ] ; then
+	    echo -n "54" > /sys/class/gpio/export
+	fi
+	echo -n "in" > /sys/class/gpio/gpio54/direction
+	chgrp gpio /sys/class/gpio/gpio54/value
+	chmod g+rw /sys/class/gpio/gpio54/value
+	;;
+    stop)
+    	echo -n "out" > /sys/class/gpio/gpio54/direction
+    	echo -n "54" > /sys/class/gpio/unexport
+	;;
+    status)
+    	ls -d /sys/class/gpio/gpio*
+	;;
+    *)
+	echo -n "Usage: $0 "
+	echo "{start|stop|restart|force-reload|status}"
+	exit 1
+	;;
+esac

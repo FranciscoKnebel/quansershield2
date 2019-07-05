@@ -55,16 +55,16 @@ int read_arm(int i) {
 
   switch(i) {
     case 1: // elbow 1
-      pgets(buffer, 1, "/sys/class/gpio/gpio13/value");
+      pgets(buffer, 1, "/sys/class/gpio/gpio52/value");
       break;
     case 2: // elbow 2
-      pgets(buffer, 1, "/sys/class/gpio/gpio14/value");
+      pgets(buffer, 1, "/sys/class/gpio/gpio54/value");
       break;
     case 3: // shoulder 1
-      pgets(buffer, 1, "/sys/class/gpio/gpio9/value");
+      pgets(buffer, 1, "/sys/class/gpio/gpio48/value");
       break;
     case 4: // shoulder 2
-      pgets(buffer, 1, "/sys/class/gpio/gpio1/value");
+      pgets(buffer, 1, "/sys/class/gpio/gpio50/value");
       break;
   }
 
