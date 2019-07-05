@@ -24,14 +24,24 @@
 #include <quanser_pwm.h>
 
 int main(int argc, char const *argv[]){
-  int gpio = strtol(argv[1], NULL, 10);
   char buffer[1];
-
+  int gpios[12] = {13, 6, 0, 1, 38, 40, 4, 10, 52, 54, 48, 50};
+  int i = 0;
+  int gpio;
   while(1){
     char str[50];
+    gpio = gpios[i];
     sprintf(str, "/sys/class/gpio/gpio%d/value", gpio);
     pgets(buffer, 1, str);
+    printf("%d waiting\n", gpio);
+    if (buffer[0] == '1'){
+      printf("%s\n",buffer);
+      usleep(TIME_STEP*10);
+      i = i+1;
+      if (i>=12){
+        return 0;
+      }
 
-    return 0;
+    }
   }
 }
