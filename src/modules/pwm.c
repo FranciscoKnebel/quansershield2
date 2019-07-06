@@ -28,7 +28,7 @@ char str[100];
 /**
  * @brief Enable PWM1.
  */
-int pwm_enable() { 
+int pwm_enable() {
   printf("Enabling PWM...\n");
   return pputs("/sys/class/pwm/pwmchip0/pwm1/enable", "1");
 }
