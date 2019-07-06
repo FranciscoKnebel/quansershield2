@@ -22,6 +22,7 @@
  */
 
 #include <pwm.h>
+#include <h_bridge.h>
 char str[100];
 
 /**
@@ -51,4 +52,14 @@ int pwm_set_duty_cycle(int duty_cycle) {
   printf("%s set \n", str );
   x = pputs("/sys/class/pwm/pwmchip0/pwm1/duty_cycle", str);
   return x;
+}
+
+int set_pwm(int period, int duty_cycle){
+
+  pwm_set_period(period);
+  pwm_set_duty_cycle(duty_cycle);
+  pwm_enable();
+  h_bridge_enable();
+
+
 }
