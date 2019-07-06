@@ -27,10 +27,12 @@
  * @brief Disable the H-bridge, on GPIO.
  */
 int h_bridge_disable_left() {
+  printf("Disabling left side of h_bridge.\n");
   return pputs("/sys/class/gpio/gpio11/value", "0");
 }
 
 int h_bridge_disable_right() {
+  printf("Disabling right side of h_bridge.\n");
   return pputs("/sys/class/gpio/gpio12/value", "0");
 }
 
@@ -40,15 +42,18 @@ int h_bridge_disable_right() {
  */
 int h_bridge_enable_left() {
   h_bridge_disable_right();
+  printf("Enabling left side of h_bridge.\n");
   return pputs("/sys/class/gpio/gpio11/value", "1");
 }
 
 int h_bridge_enable_right() {
   h_bridge_disable_left();
+  printf("Enabling right side of h_bridge.\n");
   return pputs("/sys/class/gpio/gpio12/value", "1");
 }
 
 int h_bridge_disable(){
+  printf("Disabling both sides of h_bridge.\n");
   pputs("/sys/class/gpio/gpio11/value", "0");
   pputs("/sys/class/gpio/gpio12/value", "0");
 
@@ -56,6 +61,7 @@ int h_bridge_disable(){
 }
 
 int h_bridge_enable(){
+  printf("Enabling both sides of h_bridge.\n");
   pputs("/sys/class/gpio/gpio11/value", "1");
   pputs("/sys/class/gpio/gpio12/value", "1");
 

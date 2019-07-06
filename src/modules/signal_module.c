@@ -22,11 +22,22 @@
  */
 #include <signal_module.h>
 
+int (*cb)();
+
+void handle_signal(int signal) {
+  printf("Signal received: %d. Quitting program...");
+  int response = cb(signal);
+
+  exit(response);
+}
+
 /**
  * @brief Define functions to use if program detects termination signals.
  */
-void handle_termination(void (*callback)()) {
-  signal(SIGINT, callback);
-  signal(SIGTERM, callback);
-  signal(SIGKILL, callback);
+void handle_termination(int (*callback)()) {
+  cb = callback;
+
+  signal(SIGINT, handle_signal);
+  signal(SIGTERM, handle_signal);
+  signal(SIGKILL, handle_signal);
 }

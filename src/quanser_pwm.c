@@ -25,9 +25,13 @@
 #define FREQ_MAX 1500
 #define VOLT_MAX 12 // ALTERAR PARA 27 PARA O TRABALHO
 
-void end(int sig) {
-  printf("fazendo coisas quando o programa detecta que ferrou geral.\n");
-  exit(0);
+int end(int sig) {
+  printf("Ending 'pwm.c'\n");
+
+  pwm_disable();
+  h_bridge_disable();
+
+  return 0;
 }
 
 int main(int argc, char const *argv[]) {
@@ -46,7 +50,7 @@ int main(int argc, char const *argv[]) {
   period = (int)((1.0 /FREQ_MAX)*1000000000);
   duty_cycle = (int)(voltage/VOLT_MAX*period*0.5 + 0.5*period);
 
-  // while (1) {
+  while (1) {
     usleep(TIME_STEP);
 
     pwm_set_period(period);
@@ -54,11 +58,7 @@ int main(int argc, char const *argv[]) {
     pwm_enable();
 
     h_bridge_enable();
-  // }
-
-  while(1);
+  }
 
   return 0;
 }
-
-// catch CTRL+C and pwm_disable()

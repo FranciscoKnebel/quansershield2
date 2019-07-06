@@ -28,18 +28,24 @@ char str[100];
 /**
  * @brief Enable PWM1.
  */
-int pwm_enable() { return pputs("/sys/class/pwm/pwmchip0/pwm1/enable", "1"); }
+int pwm_enable() { 
+  printf("Enabling PWM...\n");
+  return pputs("/sys/class/pwm/pwmchip0/pwm1/enable", "1"); }
 
 /**
  * @brief Disable PWM1.
  */
-int pwm_disable() { return pputs("/sys/class/pwm/pwmchip0/pwm1/enable", "0"); }
+int pwm_disable() {
+  printf("Disabling PWM...\n");
+  return pputs("/sys/class/pwm/pwmchip0/pwm1/enable", "0")
+}
 
 /**
  * @brief Set the period on the PWM device.
  */
 int pwm_set_period(int period) {
   sprintf(str, "%d", (int)period);
+  printf("Setting pwm period to %s.\n", str);
   return pputs("/sys/class/pwm/pwmchip0/device/pwm_period", str);
 }
 
@@ -47,19 +53,15 @@ int pwm_set_period(int period) {
  * @brief Set the duty cycle for PWM1.
  */
 int pwm_set_duty_cycle(int duty_cycle) {
-  int x;
   sprintf(str, "%d", duty_cycle);
-  printf("%s set \n", str );
-  x = pputs("/sys/class/pwm/pwmchip0/pwm1/duty_cycle", str);
-  return x;
+  printf("Setting duty cycle to %s.", str);  
+  return pputs("/sys/class/pwm/pwmchip0/pwm1/duty_cycle", str);
 }
 
 int set_pwm(int period, int duty_cycle){
-
   pwm_set_period(period);
   pwm_set_duty_cycle(duty_cycle);
+
   pwm_enable();
   h_bridge_enable();
-
-
 }

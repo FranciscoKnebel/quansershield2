@@ -10,7 +10,7 @@
 
     #include <signal.h> 
 
-    void handle_termination_signals();
+    void handle_termination(int (*callback)());
 
 #endif
 
