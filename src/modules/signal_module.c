@@ -15,43 +15,30 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
- * @file quanser_pwm.c
+ * @file modules/signal_module.c
  * @author Francisco Knebel, Luciano Zancan, Rodrigo Dal Ri
- * @date 26 Jun 2019
- * @brief Receive a duty cycle for PWM and enable it.
+ * @date 06 Jul 2019
+ * @brief Module containing H-bridge function helpers and manipulators.
  */
+#include <signal_module.h>
 
-#include <quanser_pwm.h>
-#define FREQ_MAX 1500
-#define VOLT_MAX 12 // ALTERAR PARA 27 PARA O TRABALHO
-
-int main(int argc, char const *argv[]) {
-  float voltage = 0.0;
-  int duty_cycle = 0;
-  int period = 0;
-
-  if (argc < 2) {
-    fprintf(stderr, "Usage: ./quanser_pwm <voltage:int> ");
-    exit(1);
-  }
-
-  handle_termination_signals();
-
-  voltage = strtol(argv[1], NULL, 10);
-  period = (int)((1.0 /FREQ_MAX)*1000000000);
-  duty_cycle = (int)(voltage/VOLT_MAX*period*0.5 + 0.5*period);
-
-  // while (1) {
-    usleep(TIME_STEP);
-
-    pwm_set_period(period);
-    pwm_set_duty_cycle(duty_cycle);
-    pwm_enable();
-
-    h_bridge_enable();
-  // }
-
-  return 0;
+void handle_SIGINT(int signal) {
+  printf("Signal received for SIGINT: %d\n", signal);
 }
 
-// catch CTRL+C and pwm_disable()
+void handle_SIGTERM(int signal) {
+  printf("Signal received for SIGTERM: %d\n", signal);
+}
+
+void handle_SIGKILL(int signal) {
+  printf("Signal received for SIGKILL: %d\n", signal);
+}
+
+/**
+ * @brief Define functions to use if program detects termination signals.
+ */
+void handle_termination_signals() {
+  signal(SIGINT, handle_SIGINT);
+  signal(SIGTERM, handle_SIGTERM);
+  signal(SIGKILL, handle_SIGKILL);
+}

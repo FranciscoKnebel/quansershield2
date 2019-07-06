@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "h_bridge.h": "c"
+        "h_bridge.h": "c",
+        "quanser_pwm.h": "c",
+        "signal.h": "c"
     }
 }
