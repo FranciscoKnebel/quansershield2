@@ -11,6 +11,7 @@
 
 #include <galileo2io.h>
 #include <stdio.h>
+#include <math.h>
 
 int pwm_enable();
 int pwm_disable();
@@ -19,7 +20,7 @@ int pwm_set_duty_cycle(int pwm_set_duty_cycle);
 int set_pwm(int period, int duty_cycle);
 
 int calculate_period();
-int calculate_duty_cycle(int voltage, int period);
+int calculate_duty_cycle(float voltage, int period);
 
 #define TIME_STEP 10000
 #define PWM_PERIOD 1500000

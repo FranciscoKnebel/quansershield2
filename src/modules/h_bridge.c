@@ -75,4 +75,6 @@ int h_bridge_status() {
   pgets(buffer+1, 1, "/sys/class/gpio/gpio12/value");
 
   printf("H_bridge: right: %c, left: %d\n", buffer[0], buffer[1]);
+
+  return 0;
 }

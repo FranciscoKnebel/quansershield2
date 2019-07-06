@@ -55,7 +55,7 @@ int pwm_set_period(int period) {
  */
 int pwm_set_duty_cycle(int duty_cycle) {
   sprintf(str, "%d", duty_cycle);
-  printf("Setting duty cycle to %s.\n", str);  
+  printf("Setting duty cycle to %s.\n", str);
   return pputs("/sys/class/pwm/pwmchip0/pwm1/duty_cycle", str);
 }
 
@@ -68,6 +68,8 @@ int set_pwm(int period, int duty_cycle){
 
   pwm_enable();
   h_bridge_enable();
+
+  return 0;
 }
 
 /**
@@ -76,15 +78,20 @@ int set_pwm(int period, int duty_cycle){
 int calculate_period() {
   int toNanoSeconds = 1000000000;
   int period = (int)((1.0/FREQ_MAX)*toNanoSeconds);
-  
+
   return period;
 }
 
 /**
  * @brief Calculate duty cycle, according to voltage, period and VOLT_MAX.
+ * If absolute value of voltage is above VOLT_MAX,
+ * voltage will be set to VOLT_MAX.
  */
-int calculate_duty_cycle(int voltage, int period) {
-  int duty_cycle = (int)(voltage/VOLT_MAX*period*0.5 + 0.5*period);
+int calculate_duty_cycle(float voltage, int period) {
+  if (fabs(voltage) > VOLT_MAX) {
+    voltage = voltage > 0 ? (float) VOLT_MAX : (float) -VOLT_MAX;
+  }
+  int duty_cycle = (int)((voltage/VOLT_MAX)*period*0.5 + 0.5*period);
 
   return duty_cycle;
 }

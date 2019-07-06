@@ -48,12 +48,14 @@ int main(int argc, char const *argv[]) {
   period = calculate_period();
   duty_cycle = calculate_duty_cycle(voltage, period);
 
+  printf("%f %d %d v p d\n", voltage, period, duty_cycle);
+
   usleep(TIME_STEP);
   pwm_set_period(period);
   pwm_set_duty_cycle(duty_cycle);
   pwm_enable();
   h_bridge_enable();
-  
+
   while(1);
 
   return 0;

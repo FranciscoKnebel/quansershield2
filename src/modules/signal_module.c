@@ -32,7 +32,7 @@ int (*cb)() = NULL;
 
 void handle_signal(int signal) {
   int response = 0;
-  printf("Signal received: %d. Quitting program...");
+  printf("Signal received: %d. Quitting program...", signal);
 
   if (cb != NULL) {
     response = cb(signal);
