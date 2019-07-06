@@ -2,7 +2,7 @@
 # Copyright (C) 2019 Francisco Knebel, Luciano Zancan, Rodrigo Dal Ri
 
 # Main target programs
-TARGET_LIST = quanser_pwm quanser_testepin quanser_volt
+TARGET_LIST = quanser_pwm quanser_testepin quanser_volt quanser_pwm_cycle
 TARGET_SRCS = $(addsuffix .c, $(addprefix src/, ${TARGET_LIST}))
 TARGET_OBJS = $(TARGET_SRCS:.c=.o)
 
