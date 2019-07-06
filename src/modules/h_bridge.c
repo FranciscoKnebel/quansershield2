@@ -34,6 +34,7 @@ int h_bridge_disable_right() {
   return pputs("/sys/class/gpio/gpio12/value", "0");
 }
 
+
 /**
  * @brief Enable the H-bridge, on GPIO.
  */
@@ -45,6 +46,20 @@ int h_bridge_enable_left() {
 int h_bridge_enable_right() {
   h_bridge_disable_left();
   return pputs("/sys/class/gpio/gpio12/value", "1");
+}
+
+int h_bridge_disable(){
+  pputs("/sys/class/gpio/gpio11/value", "0");
+  pputs("/sys/class/gpio/gpio12/value", "0");
+
+  return 0;
+}
+
+int h_bridge_enable(){
+  pputs("/sys/class/gpio/gpio11/value", "1");
+  pputs("/sys/class/gpio/gpio12/value", "1");
+
+  return 0;
 }
 
 int h_bridge_status() {

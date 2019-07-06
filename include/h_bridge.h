@@ -13,14 +13,24 @@
 #include <stdio.h>
 
 /**
- * @brief Disable the H-bridge, on GPIO38.
+ * @brief Disable the H-bridge (left and right).
  */
 int h_bridge_disable_left();
 int h_bridge_disable_right();
+
 /**
- * @brief Enable the H-bridge, on GPIO38.
+ * @brief Enable the H-bridge (left and right).
  */
 int h_bridge_enable_left();
 int h_bridge_enable_right();
 
+/**
+ * @brief Enable the H-bridge.
+ */
+int h_bridge_enable();
+
+/**
+ * @brief Disable the H-bridge.
+ */
+int h_bridge_disable();
 #endif
