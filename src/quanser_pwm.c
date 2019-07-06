@@ -25,6 +25,10 @@
 #define FREQ_MAX 1500
 #define VOLT_MAX 12 // ALTERAR PARA 27 PARA O TRABALHO
 
+void end(int sig) {
+  printf("fazendo coisas quando o programa detecta que ferrou geral.\n");
+}
+
 int main(int argc, char const *argv[]) {
   float voltage = 0.0;
   int duty_cycle = 0;
@@ -35,7 +39,7 @@ int main(int argc, char const *argv[]) {
     exit(1);
   }
 
-  handle_termination_signals();
+  handle_termination(&end);
 
   voltage = strtol(argv[1], NULL, 10);
   period = (int)((1.0 /FREQ_MAX)*1000000000);
@@ -50,6 +54,8 @@ int main(int argc, char const *argv[]) {
 
     h_bridge_enable();
   // }
+
+  while(1);
 
   return 0;
 }

@@ -22,23 +22,11 @@
  */
 #include <signal_module.h>
 
-void handle_SIGINT(int signal) {
-  printf("Signal received for SIGINT: %d\n", signal);
-}
-
-void handle_SIGTERM(int signal) {
-  printf("Signal received for SIGTERM: %d\n", signal);
-}
-
-void handle_SIGKILL(int signal) {
-  printf("Signal received for SIGKILL: %d\n", signal);
-}
-
 /**
  * @brief Define functions to use if program detects termination signals.
  */
-void handle_termination_signals() {
-  signal(SIGINT, handle_SIGINT);
-  signal(SIGTERM, handle_SIGTERM);
-  signal(SIGKILL, handle_SIGKILL);
+void handle_termination(void (*callback)()) {
+  signal(SIGINT, callback);
+  signal(SIGTERM, callback);
+  signal(SIGKILL, callback);
 }
