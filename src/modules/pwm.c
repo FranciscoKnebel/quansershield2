@@ -83,7 +83,7 @@ int calculate_period() {
 /**
  * @brief Calculate duty cycle, according to voltage, period and VOLT_MAX.
  */
-int calculate_dutycycle(int voltage, int period) {
+int calculate_duty_cycle(int voltage, int period) {
   int duty_cycle = (int)(voltage/VOLT_MAX*period*0.5 + 0.5*period);
 
   return duty_cycle;
