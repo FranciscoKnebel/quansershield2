@@ -9,6 +9,8 @@
 #define QUANSER_SIGNAL_H
 
     #include <signal.h> 
+    #include <stdio.h>
+    #include <stdlib.h>
 
     void handle_termination(int (*callback)());
 

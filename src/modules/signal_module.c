@@ -20,14 +20,23 @@
  * @date 06 Jul 2019
  * @brief Module containing H-bridge function helpers and manipulators.
  */
+
 #include <signal_module.h>
 
-int (*cb)();
+int (*cb)() = NULL;
+
+/**
+ * @brief Standard handling for all signals. Will be called on SIGINT, SIGTERM and SIGKILL.
+ * Will call callback defined by program, if defined.
+ */
 
 void handle_signal(int signal) {
+  int response = 0;
   printf("Signal received: %d. Quitting program...");
-  int response = cb(signal);
 
+  if (cb != NULL) {
+    response = cb(signal);
+  }
   exit(response);
 }
 

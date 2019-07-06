@@ -30,14 +30,15 @@ char str[100];
  */
 int pwm_enable() { 
   printf("Enabling PWM...\n");
-  return pputs("/sys/class/pwm/pwmchip0/pwm1/enable", "1"); }
+  return pputs("/sys/class/pwm/pwmchip0/pwm1/enable", "1");
+}
 
 /**
  * @brief Disable PWM1.
  */
 int pwm_disable() {
   printf("Disabling PWM...\n");
-  return pputs("/sys/class/pwm/pwmchip0/pwm1/enable", "0")
+  return pputs("/sys/class/pwm/pwmchip0/pwm1/enable", "0");
 }
 
 /**
@@ -54,14 +55,36 @@ int pwm_set_period(int period) {
  */
 int pwm_set_duty_cycle(int duty_cycle) {
   sprintf(str, "%d", duty_cycle);
-  printf("Setting duty cycle to %s.", str);  
+  printf("Setting duty cycle to %s.\n", str);  
   return pputs("/sys/class/pwm/pwmchip0/pwm1/duty_cycle", str);
 }
 
+/**
+ * @brief Set PWM values of period and duty cycle, enabling it and the h_bridge.
+ */
 int set_pwm(int period, int duty_cycle){
   pwm_set_period(period);
   pwm_set_duty_cycle(duty_cycle);
 
   pwm_enable();
   h_bridge_enable();
+}
+
+/**
+ * @brief Calculate period from FREQ_MAX.
+ */
+int calculate_period() {
+  int toNanoSeconds = 1000000000;
+  int period = (int)((1.0/FREQ_MAX)*toNanoSeconds);
+  
+  return period;
+}
+
+/**
+ * @brief Calculate duty cycle, according to voltage, period and VOLT_MAX.
+ */
+int calculate_dutycycle(int voltage, int period) {
+  int duty_cycle = (int)(voltage/VOLT_MAX*period*0.5 + 0.5*period);
+
+  return duty_cycle;
 }
