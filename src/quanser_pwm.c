@@ -27,6 +27,7 @@
 
 void end(int sig) {
   printf("fazendo coisas quando o programa detecta que ferrou geral.\n");
+  exit(0);
 }
 
 int main(int argc, char const *argv[]) {
