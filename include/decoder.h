@@ -6,13 +6,15 @@
  * manipulators.
  */
 
-#ifndef DEC_H_
-#define DEC_H_
+#ifndef DECODER_H_
+#define DECODER_H_
 
 #include <galileo2io.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
-int counted_to_radians(int counted);
 int read_decoder();
+int counted_to_radians(int counted);
 
 #endif

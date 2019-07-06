@@ -45,10 +45,8 @@ int main(int argc, char const *argv[]) {
   handle_termination(&end);
 
   voltage = strtol(argv[1], NULL, 10);
-  period = calculate_period();
   duty_cycle = calculate_duty_cycle(voltage, period);
-
-  printf("%f %d %d v p d\n", voltage, period, duty_cycle);
+  period = calculate_period();
 
   usleep(TIME_STEP);
   pwm_set_period(period);

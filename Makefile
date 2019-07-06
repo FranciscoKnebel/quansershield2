@@ -2,14 +2,14 @@
 # Copyright (C) 2019 Francisco Knebel, Luciano Zancan, Rodrigo Dal Ri
 
 # Main target programs
-TARGET_LIST = quanser_pwm quanser_testepin quanser_volt quanser_pwm_cycle
+TARGET_LIST = quanser_pwm quanser_testepin quanser_volt quanser_pwm_cycle quanser_decode
 TARGET_SRCS = $(addsuffix .c, $(addprefix src/, ${TARGET_LIST}))
 TARGET_OBJS = $(TARGET_SRCS:.c=.o)
 
 # List of module files
 # MODULE_LIST contains the space-separated module list.
 # MODULE_SRCS contains the MODULE_LIST items with .c suffix and src/modules prefix.
-MODULE_LIST = pwm h_bridge arm signal_module
+MODULE_LIST = pwm h_bridge arm signal_module decoder
 MODULE_SRCS = $(addsuffix .c, $(addprefix src/modules/, ${MODULE_LIST}))
 MODULE_OBJS = $(MODULE_SRCS:.c=.o)
 MODULE_LIB = shieldmodules
