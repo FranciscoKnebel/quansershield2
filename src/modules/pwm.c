@@ -28,7 +28,7 @@ char str[100];
 /**
  * @brief Enable PWM1.
  */
-int pwm_enable() { 
+int pwm_enable() {
   printf("Enabling PWM...\n");
   return pputs("/sys/class/pwm/pwmchip0/pwm1/enable", "1"); }
 
@@ -37,7 +37,7 @@ int pwm_enable() {
  */
 int pwm_disable() {
   printf("Disabling PWM...\n");
-  return pputs("/sys/class/pwm/pwmchip0/pwm1/enable", "0")
+  return pputs("/sys/class/pwm/pwmchip0/pwm1/enable", "0");
 }
 
 /**
@@ -54,7 +54,7 @@ int pwm_set_period(int period) {
  */
 int pwm_set_duty_cycle(int duty_cycle) {
   sprintf(str, "%d", duty_cycle);
-  printf("Setting duty cycle to %s.", str);  
+  printf("Setting duty cycle to %s.", str);
   return pputs("/sys/class/pwm/pwmchip0/pwm1/duty_cycle", str);
 }
 

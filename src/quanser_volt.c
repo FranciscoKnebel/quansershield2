@@ -39,7 +39,6 @@ int main(int argc, char const *argv[]) {
   period = (int)((1.0 /FREQ_MAX)*1000000000);
   duty_cycle = (int)(voltage_abs/VOLT_MAX*period*0.5 + 0.5*period);
 
-
   //usleep(TIME_STEP);
   //pwm_set_period(period);
   //pwm_set_duty_cycle(duty_cycle);
