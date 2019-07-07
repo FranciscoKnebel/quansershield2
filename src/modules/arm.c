@@ -30,46 +30,79 @@ int detect_endoftrajectory_elbow(int index) {
   if (index > 2 || index < 1) {
     return -1;
   }
-
-  return read_arm(index) == 0;
+  read_arm(index);
+  return 0;
 }
 
 /**
  * @brief Detect if reached end of trajectory in 'index' shoulder.
  */
-int detect_endoftrajectory_shoulder(int index)
-{
+int detect_endoftrajectory_shoulder(int index) {
   index += 2;
 
   if(index > 4 || index < 3) {
     return -1;
   }
-  return read_arm(index) == 0;
+  read_arm(index);
+  return 0;
 }
 
 /**
  * @brief Read value of arm element and returns if finished (0) or  not (1)
  */
-int read_arm(int i) {
-  char buffer[1];
+void read_arm(int i) {
+  pthread_t thread;
 
   switch(i) {
     case 1: // elbow 1
-      pgets(buffer, 1, "/sys/class/gpio/gpio52/value");
+      pthread_create(&thread, NULL, &read_file_end_of_trajectory, 52);
       break;
     case 2: // elbow 2
-      pgets(buffer, 1, "/sys/class/gpio/gpio54/value");
+      pthread_create(&thread, NULL, &read_file_end_of_trajectory, 54);
       break;
     case 3: // shoulder 1
-      pgets(buffer, 1, "/sys/class/gpio/gpio48/value");
+      pthread_create(&thread, NULL, &read_file_end_of_trajectory, 48);
       break;
     case 4: // shoulder 2
-      pgets(buffer, 1, "/sys/class/gpio/gpio50/value");
+      pthread_create(&thread, NULL, &read_file_end_of_trajectory, 50);
       break;
   }
+}
 
-  int finished;
-  sscanf(buffer, "%d", &finished);
 
-  return finished;
+/**
+* @brief Read GPIO file and waits for interrupt, for use with end of trajectory.
+**/
+int read_file_end_of_trajectory(int gpio) {
+  char str[100];
+  unsigned char c;
+  struct pollfd pfd;
+
+  sprintf(str, "/sys/class/gpio/gpio%d/value", gpio);
+  if((pfd.fd = open(str,O_RDONLY)) < 0) {
+    return -1;
+  }
+
+  read(pfd.fd, &c, 1);
+  pfd.events=POLLPRI;
+
+  printf("Waiting for interrupt from gpio%d...\n", gpio);
+  sprintf(str, "/sys/class/gpio/gpio%d/edge", gpio);
+
+  pputs(str, "falling");
+  poll(&pfd,1,-1);
+  lseek(pfd.fd,0,SEEK_SET);
+  read(pfd.fd,&c,1);
+
+  if (c == '0') {
+    printf("Chegou ao fim de curso, gpio %d.\n\n", gpio);
+
+    pwm_disable();
+    h_bridge_disable();
+  }
+
+  pputs(str, "none");
+  close(pfd.fd);
+
+  return 0;
 }

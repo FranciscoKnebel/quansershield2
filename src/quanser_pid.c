@@ -38,6 +38,7 @@ int main(int argc, char *argv[]) {
   float count_angle_constant = 1e-3;
   float kp = 0, ki = 0, kd = 0;
   float error = 0;
+  int period = 0;
   int duty_cycle = 0;
   float integral_error = 0, derivative_error = 0, last_error = 0;
   int last_count = 0;

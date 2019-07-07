@@ -15,21 +15,46 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
+ * @file quanser_volt_trajectory.c
  * @author Francisco Knebel, Luciano Zancan, Rodrigo Dal Ri
- * @file quanser_elbow.c
  * @date 26 Jun 2019
- * @brief Detect if end of trajectory of elbow 1 and 2, and shoulder 1 and 2
+ * @brief Receive a voltage and sets PWM period and duty cycle.
  */
 
-#include <quanser_elbow.h>
+#include <quanser_pwm.h>
+
+int end(int sig) {
+  printf("Ending 'quanser_volt_trajectory.c'\n");
+
+  pwm_disable();
+  h_bridge_disable();
+
+  return 0;
+}
 
 int main(int argc, char const *argv[]) {
-  int elbow1 = 0;
-  int elbow2 = 0;
-  int shoulder1 = 0;
-  int shoulder2 = 0;
+  float voltage = 0.0;
+  int duty_cycle = 0;
+  int period = 0;
 
-  while (1) {
-    printf("end of trajectory: %d \n", detect_endoftrajectory_elbow(1));
+  if (argc < 2) {
+    fprintf(stderr, "Usage: ./quanser_volt_trajectory <voltage:int> ");
+    exit(1);
   }
+  handle_termination(&end);
+
+  // Set end of trajectory threads.
+  detect_endoftrajectory_elbow(1);
+  detect_endoftrajectory_elbow(2);
+  detect_endoftrajectory_shoulder(1);
+  detect_endoftrajectory_shoulder(2);
+
+  voltage = strtol(argv[1], NULL, 10);
+  period = calculate_period();
+  duty_cycle = calculate_duty_cycle(voltage, period);
+  set_pwm(period, duty_cycle);
+
+  while(1);
+
+  return 0;
 }

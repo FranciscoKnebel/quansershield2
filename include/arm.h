@@ -11,9 +11,18 @@
 
 #include <galileo2io.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <poll.h>
+#include <pthread.h>
+#include <unistd.h>
+
+#include <pwm.h>
+#include <h_bridge.h>
 
   int detect_endoftrajectory_elbow(int index);
   int detect_endoftrajectory_shoulder(int index);
-  int read_arm(int i);
+  void read_arm(int i);
+  int read_file_end_of_trajectory(int gpio);
 
 #endif

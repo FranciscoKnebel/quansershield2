@@ -15,46 +15,22 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
- * @file quanser_motor.c
  * @author Francisco Knebel, Luciano Zancan, Rodrigo Dal Ri
+ * @file quanser_trajectory.c
  * @date 26 Jun 2019
- * @brief Receive voltage, calculate the duty cicle and set the movement of the
- * elbow.
+ * @brief Detect if end of trajectory of elbow 1 and 2, and shoulder 1 and 2
  */
 
-#include <quanser_motor.h>
+#include <quanser_trajectory.h>
 
 int main(int argc, char const *argv[]) {
-  int voltage = 0;
-  int duty_cycle = 0;
+  detect_endoftrajectory_elbow(1);
+  detect_endoftrajectory_elbow(2);
 
-  if (argc < 2) {
-    fprintf(stderr, "Usage: ./quanser_motor <voltage> ");
-    exit(1);
-  }
+  detect_endoftrajectory_shoulder(1);
+  detect_endoftrajectory_shoulder(2);
 
-  sscanf(argv[1], "%d", &voltage);
-
-  if (voltage > MAX_VOLTAGE || voltage < MIN_VOLTAGE) {
-    fprintf(stderr,
-            "Invalid voltage input value. Max value '%d' - Min value '%d'",
-            MAX_VOLTAGE, MIN_VOLTAGE);
-    exit(2);
-  }
-
-  h_bridge_disable();
-
-  pwm_set_period(PWM_PERIOD);
-  pwm_enable();
-  duty_cycle = voltage * DUTY_SLOPE + DUTY_LIMIT;
-  printf("duty cycle: %d\n", duty_cycle);
-  pwm_set_duty_cycle(duty_cycle);
-
-  h_bridge_enable();
-  usleep(TIME_STEP);
-
-  h_bridge_disable();
-  pwm_disable();
+  while(1);
 
   return 0;
 }
