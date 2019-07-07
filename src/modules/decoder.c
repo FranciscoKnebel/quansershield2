@@ -24,127 +24,100 @@
 #include <decoder.h>
 #define PI 3.14159265358979323846
 
-int read_decoder() {
-  char data[2];
-  char teste[1];
-  int counted = 0;
+struct timespec sleep_time, end_time;
 
-  struct timespec sleep_time;
-  sleep_time.tv_sec = 0;
-  sleep_time.tv_nsec = 84; //1000 ns = 1 us
+int save(int index, int gpio, char* str) {
+  char value[1];
+  char gpio_file[50];
+  sprintf(gpio_file, "/sys/class/gpio/gpio%d/value", gpio);
 
+  pgets(value, 1, gpio_file);
+  str[index] = value[0];
+
+  return index;
+}
+
+void reset_decoder() {
+  printf("Resetting decoder.\n");
+  pputs("/sys/class/gpio/gpio5/value", "0");
+  xsleep(1);
+  printf("Reset done.\n");
   pputs("/sys/class/gpio/gpio5/value", "1"); // set ~rst to 1 = not reset
+}
 
-  // HIGH BYTE
-  pputs("/sys/class/gpio/gpio15/value", "1"); // oe
-  pputs("/sys/class/gpio/gpio15/value", "0"); // oe
+int read_gpio() {
+  char bin[17];
+  int gpio[8] = { 13, 6, 0, 1, 38, 40, 4, 10 };
+  int counter = 0;
+  size_t i;
+
+  // printf("STARTING HIGH!\n");
   pputs("/sys/class/gpio/gpio7/value", "0"); // set sel
-  nanosleep(&sleep_time,NULL);
+  xsleep(1);
+  pputs("/sys/class/gpio/gpio15/value", "1"); // oe
+  xsleep(5);
 
-  pgets(teste, 1, "/sys/class/gpio/gpio15/value");
-  printf("oe %s,", teste);
-  pgets(teste, 1, "/sys/class/gpio/gpio7/value");
-  printf("sel %s,", teste);
-  pgets(teste, 1, "/sys/class/gpio/gpio5/value");
-  printf("sel %s,", teste);
+  for (i = 0; i < 16; i++) {
+    if (i < 8) {
+      // HIGH
+      save(i, gpio[i], bin);
+    } else {
+      // LOW
+      if (i == 8) {
+        // printf("STARTING LOW!\n");
+        pputs("/sys/class/gpio/gpio7/value", "1"); // set sel
+        xsleep(5);
+      }
+      save(i, gpio[i-8], bin);
+    }
+    xsleep(1);
+  }
 
-  printf("HIGH ");
-  pgets(data, 1, "/sys/class/gpio/gpio13/value");
-  putchar(data[0]);
-  counted += atoi(data)*32768;
+  bin[16] = '\0';
+  printf("Counted in Binary: %s.\n", bin);
+  counter = strtol(&bin, NULL, 2);
+  printf("Counted in Decimal: %d\n", counter);
 
-  pgets(data, 1, "/sys/class/gpio/gpio6/value");
-  putchar(data[0]);
-  counted += atoi(data)*16384;
+  pputs("/sys/class/gpio/gpio15/value", "0"); // oe
+  xsleep(1);
 
-  pgets(data, 1, "/sys/class/gpio/gpio0/value");
-  putchar(data[0]);
-  counted += atoi(data)*8192;
+  return counter;
+}
 
-  pgets(data, 1, "/sys/class/gpio/gpio1/value");
-  putchar(data[0]);
-  counted += atoi(data)*4096;
+void xsleep(int times) {
+  int count = 0;
 
-  pgets(data, 1, "/sys/class/gpio/gpio38/value");
-  putchar(data[0]);
-  counted += atoi(data)*2048;
+  while (count < times) {
+    nanosleep(&sleep_time,&end_time);
+    count++;
+  }
+}
 
-  pgets(data, 1, "/sys/class/gpio/gpio40/value");
-  putchar(data[0]);
-  counted += atoi(data)*1024;
+int read_decoder() {
+  int counted = 0;
+  sleep_time.tv_sec = 0;
+  sleep_time.tv_nsec = 125000000; //1000 ns = 1 us
 
-  pgets(data, 1, "/sys/class/gpio/gpio4/value");
-  putchar(data[0]);
-  counted += atoi(data)*512;
+  // reset_decoder();
 
-  pgets(data, 1, "/sys/class/gpio/gpio10/value");
-  putchar(data[0]);
-  counted += atoi(data)*256;
+  // printf("================================\n");
+  // printf("LENDO RESETADO!\n");
+  // counted = read_gpio();
+  // printf("================================\n");
+  // xsleep(100);
 
-  printf("\n");
-  // LOW BYTE
-  pputs("/sys/class/gpio/gpio7/value", "1"); // set sel
-  nanosleep(&sleep_time,NULL);
+  counted = read_gpio();
 
-  pgets(teste, 1, "/sys/class/gpio/gpio15/value");
-  printf("oe %s,", teste);
-  pgets(teste, 1, "/sys/class/gpio/gpio7/value");
-  printf("sel %s,", teste);
-  pgets(teste, 1, "/sys/class/gpio/gpio5/value");
-  printf("sel %s,", teste);
-
-  printf("LOW ");
-  pgets(data, 1, "/sys/class/gpio/gpio13/value");
-  putchar(data[0]);
-  counted += atoi(data)*128;
-
-  pgets(data, 1, "/sys/class/gpio/gpio6/value");
-  putchar(data[0]);
-  counted += atoi(data)*64;
-
-  pgets(data, 1, "/sys/class/gpio/gpio0/value");
-  putchar(data[0]);
-  counted += atoi(data)*32;
-
-  pgets(data, 1, "/sys/class/gpio/gpio1/value");
-  putchar(data[0]);
-  counted += atoi(data)*16;
-
-  pgets(data, 1, "/sys/class/gpio/gpio38/value");
-  putchar(data[0]);
-  counted += atoi(data)*8;
-
-  pgets(data, 1, "/sys/class/gpio/gpio40/value");
-  putchar(data[0]);
-  counted += atoi(data)*4;
-
-  pgets(data, 1, "/sys/class/gpio/gpio4/value");
-  putchar(data[0]);
-  counted += atoi(data)*2;
-
-  pgets(data, 1, "/sys/class/gpio/gpio10/value");
-  putchar(data[0]); counted += atoi(data)*1;
-  printf("\n");
-
-  pputs("/sys/class/gpio/gpio15/value", "1"); // set oe
-
-  pgets(teste, 1, "/sys/class/gpio/gpio15/value");
-  printf("oe %s,", teste);
-  pgets(teste, 1, "/sys/class/gpio/gpio7/value");
-  printf("sel %s,", teste);
-  pgets(teste, 1, "/sys/class/gpio/gpio5/value");
-
-  printf("%d read_counted \n", counted);
   return counted;
 }
 
 int counted_to_radians(int counted) {
   int degrees = 0;
   int radians = 0;
-  int x = 4; //tipo de contagem
-  int n = 11;//1024; //linhas por revolucao
+  int x = 4; // tipo de contagem
+  int n = 1024; // linhas por revolucao
 
-  degrees = (counted*360)/(x*n); //TODO limitar angulo entre 0 e 360
+  degrees = (counted*360)/(x*n) % 360;
   radians = (degrees*PI)/(180);
 
   printf("%d %d %d counted degrees radians\n", counted, degrees, radians);

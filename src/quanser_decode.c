@@ -23,6 +23,7 @@
 
  #include <quanser_pwm.h>
  #include <decoder.h>
+ #include <time.h>
 
  int end(int sig) {
    printf("Ending 'quanser_decode.c'\n");
@@ -47,20 +48,28 @@
    voltage = strtol(argv[1], NULL, 10);
    period = calculate_period();
 
-   pwm_set_period(period);
-   pwm_enable();
-   h_bridge_enable();
-
    int counter = read_decoder();
    int radians = counted_to_radians(counter);
    printf("radians: %d\n", radians);
+   usleep(TIME_STEP);
+
+   pwm_set_period(period);
+   h_bridge_enable();
+   pwm_enable();
 
    duty_cycle = calculate_duty_cycle(voltage, period);
    pwm_set_duty_cycle(duty_cycle);
-   usleep(TIME_STEP*300);
-   pwm_disable();
-   h_bridge_disable();
 
+   struct timespec sleep_time, end_time;
+   sleep_time.tv_sec = 1;
+   sleep_time.tv_nsec = 0; //1000 ns = 1 us
+   nanosleep(&sleep_time, &end_time);
+   h_bridge_disable();
+   pwm_disable();
+   
+   // printf("dormindo filho da puta\n");
+   // usleep(TIME_STEP);
+   printf("LENDO DECODER NOVAMENTE\n");
    counter = read_decoder();
    radians = counted_to_radians(counter);
    printf("radians: %d\n", radians);
