@@ -2,7 +2,7 @@
 # Copyright (C) 2019 Francisco Knebel, Luciano Zancan, Rodrigo Dal Ri
 
 # Main target programs
-TARGET_LIST = quanser_pwm quanser_testepin quanser_volt quanser_pwm_cycle quanser_decode
+TARGET_LIST = quanser_pwm quanser_testepin quanser_volt quanser_pwm_cycle quanser_decode quanser_pid
 TARGET_SRCS = $(addsuffix .c, $(addprefix src/, ${TARGET_LIST}))
 TARGET_OBJS = $(TARGET_SRCS:.c=.o)
 
@@ -50,7 +50,7 @@ lib/lib$(MODULE_LIB).a: $(MODULE_OBJS)
 
 clean:
 	rm -f *~ *.bak
-	rm ${TARGET_LIST} ${TARGET_OBJS} ${TARGET_OBJS:.o=.d} lib/lib${MODULE_LIB}.a ${MODULE_OBJS} ${MODULE_OBJS:.o=.d}
+	rm ${TARGET_LIST} ${TARGET_OBJS} ${TARGET_OBJS:.o=.d} lib/lib${MODULE_LIB}.a ${MODULE_OBJS} ${MODULE_OBJS:.o=.d} -f
 
 docs: Doxyfile DoxygenLayout.xml README.md LICENSE.md $(TARGET_LIST)
 	@echo "Building Doxygen..."

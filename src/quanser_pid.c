@@ -17,11 +17,20 @@
 /**
  * @file quanser_pid.c
  * @author Francisco Knebel, Luciano Zancan, Rodrigo Dal Ri
- * @date 26 Jun 2019
+ * @date 07 Jul 2019
  * @brief Run PID communication for reading the encoders.
  */
 
 #include <quanser_pid.h>
+
+int end(int sig) {
+  printf("Ending 'quanser_pid.c'\n");
+
+  pwm_disable();
+  h_bridge_disable();
+
+  return 0;
+}
 
 int main(int argc, char *argv[]) {
   float angular_position = 0;
@@ -48,14 +57,14 @@ int main(int argc, char *argv[]) {
     sscanf(argv[5], "%f", &count_angle_constant);
   }
 
-  spi_init();
-  decoder_init();
-  last_count = decoder_read_counter();
+  handle_termination(&end);
+
+  last_count = counted_to_radians(read_decoder());
 
   while (1) {
     usleep(TIME_STEP);
 
-    int current_count = decoder_read_counter();
+    int current_count = counted_to_radians(read_decoder());
     int delta_count = current_count - last_count;
 
     // Receives the position of the elbow in radians
@@ -69,19 +78,18 @@ int main(int argc, char *argv[]) {
     integral_error = integral_error + error * TIME_STEP;
     derivative_error = (error - last_error) / TIME_STEP;
 
-    double relative_speed =
-        kp * error + ki * integral_error + kd * derivative_error;
-
-    pwm_set_period(PWM_PERIOD);
-    pwm_enable();
-    duty_cycle = (relative_speed + 1) * PWM_PERIOD / 2;
-    pwm_set_duty_cycle(duty_cycle);
-    pwm_disable();
+    double relative_speed = kp * error + ki * integral_error + kd * derivative_error;
     printf("New relative speed: %f (%f)\n", relative_speed, angular_position);
+
+    period = calculate_period();
+    duty_cycle = (relative_speed + 1) * period / 2;
+
+    pwm_set_period(period);
+    pwm_set_duty_cycle(duty_cycle);
+    pwm_enable();
+    h_bridge_enable();
 
     last_count = current_count;
     last_error = error;
   }
-
-  spi_close();
 }

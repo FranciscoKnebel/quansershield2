@@ -45,8 +45,8 @@ int main(int argc, char const *argv[]) {
   handle_termination(&end);
 
   voltage = strtol(argv[1], NULL, 10);
-  duty_cycle = calculate_duty_cycle(voltage, period);
   period = calculate_period();
+  duty_cycle = calculate_duty_cycle(voltage, period);
 
   usleep(TIME_STEP);
   pwm_set_period(period);
