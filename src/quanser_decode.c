@@ -39,7 +39,7 @@
    int period = 0;
 
    if (argc < 2) {
-     fprintf(stderr, "Usage: ./quanser_pwm <voltage:int> ");
+     fprintf(stderr, "Usage: ./quanser_decode <voltage:int> ");
      exit(1);
    }
    handle_termination(&end);
