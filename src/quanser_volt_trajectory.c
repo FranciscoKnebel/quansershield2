@@ -22,6 +22,7 @@
  */
 
 #include <quanser_pwm.h>
+#include <arm.h>
 
 int end(int sig) {
   printf("Ending 'quanser_volt_trajectory.c'\n");

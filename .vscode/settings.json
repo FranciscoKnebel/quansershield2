@@ -5,6 +5,8 @@
         "signal.h": "c",
         "signal_module.h": "c",
         "stdlib.h": "c",
-        "pwm.h": "c"
+        "pwm.h": "c",
+        "quanser_trajectory.h": "c",
+        "arm.h": "c"
     }
 }
