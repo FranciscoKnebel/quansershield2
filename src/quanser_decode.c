@@ -48,6 +48,12 @@
    voltage = strtol(argv[1], NULL, 10);
    period = calculate_period();
 
+  detect_endoftrajectory_elbow(1);
+  detect_endoftrajectory_elbow(2);
+  detect_endoftrajectory_shoulder(1);
+  detect_endoftrajectory_shoulder(2);
+
+
    int counter = read_decoder();
    int radians = counted_to_radians(counter);
    printf("radians: %d\n", radians);
@@ -60,19 +66,20 @@
    duty_cycle = calculate_duty_cycle(voltage, period);
    pwm_set_duty_cycle(duty_cycle);
 
-   struct timespec sleep_time, end_time;
-   sleep_time.tv_sec = 1;
-   sleep_time.tv_nsec = 0; //1000 ns = 1 us
-   nanosleep(&sleep_time, &end_time);
-   h_bridge_disable();
-   pwm_disable();
+  while (1);
+
+  //  struct timespec sleep_time, end_time;
+  //  sleep_time.tv_sec = 1;
+  //  sleep_time.tv_nsec = 0; //1000 ns = 1 us
+  //  nanosleep(&sleep_time, &end_time);
+  //  h_bridge_disable();
+  //  pwm_disable();
    
-   // printf("dormindo filho da puta\n");
-   // usleep(TIME_STEP);
-   printf("LENDO DECODER NOVAMENTE\n");
-   counter = read_decoder();
-   radians = counted_to_radians(counter);
-   printf("radians: %d\n", radians);
+  //  // usleep(TIME_STEP);
+  //  printf("LENDO DECODER NOVAMENTE\n");
+  //  counter = read_decoder();
+  //  radians = counted_to_radians(counter);
+  //  printf("radians: %d\n", radians);
 
    return 0;
  }

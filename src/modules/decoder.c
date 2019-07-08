@@ -46,16 +46,16 @@ void reset_decoder() {
 }
 
 int read_gpio() {
-  char bin[17];
+  char bin[17] = {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'};
   int gpio[8] = { 13, 6, 0, 1, 38, 40, 4, 10 };
   int counter = 0;
   size_t i;
 
   // printf("STARTING HIGH!\n");
+  pputs("/sys/class/gpio/gpio15/value", "0"); // oe
+  xsleep(1);
   pputs("/sys/class/gpio/gpio7/value", "0"); // set sel
   xsleep(1);
-  pputs("/sys/class/gpio/gpio15/value", "1"); // oe
-  xsleep(5);
 
   for (i = 0; i < 16; i++) {
     if (i < 8) {
@@ -66,7 +66,7 @@ int read_gpio() {
       if (i == 8) {
         // printf("STARTING LOW!\n");
         pputs("/sys/class/gpio/gpio7/value", "1"); // set sel
-        xsleep(5);
+        xsleep(1);
       }
       save(i, gpio[i-8], bin);
     }
@@ -78,7 +78,7 @@ int read_gpio() {
   counter = strtol(&bin, NULL, 2);
   printf("Counted in Decimal: %d\n", counter);
 
-  pputs("/sys/class/gpio/gpio15/value", "0"); // oe
+  pputs("/sys/class/gpio/gpio15/value", "1"); // oe
   xsleep(1);
 
   return counter;
@@ -96,7 +96,7 @@ void xsleep(int times) {
 int read_decoder() {
   int counted = 0;
   sleep_time.tv_sec = 0;
-  sleep_time.tv_nsec = 125000000; //1000 ns = 1 us
+  sleep_time.tv_nsec = 100; //1000 ns = 1 us
 
   // reset_decoder();
 

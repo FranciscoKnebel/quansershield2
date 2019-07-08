@@ -26,6 +26,6 @@ int calculate_duty_cycle(float voltage, int period);
 #define PWM_PERIOD 1500000
 
 #define FREQ_MAX 1500
-#define VOLT_MAX 12
+#define VOLT_MAX 27
 
 #endif

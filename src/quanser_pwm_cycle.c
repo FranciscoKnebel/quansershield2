@@ -45,13 +45,13 @@ int main(int argc, char const *argv[]) {
   pwm_enable();
   h_bridge_enable();
 
-  voltage = -12.0;
+  voltage = -VOLT_MAX;
   direction = 1;
   while (1) {
     voltage += 1 * direction;
     duty_cycle = calculate_duty_cycle(voltage, period);
     pwm_set_duty_cycle(duty_cycle);
-    usleep(TIME_STEP*10);
+    usleep(TIME_STEP*20);
 
     if (fabs(voltage) > VOLT_MAX) {
       printf("chegou a max velocidade: %f\n", voltage);

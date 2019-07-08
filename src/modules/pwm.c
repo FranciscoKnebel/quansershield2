@@ -79,6 +79,7 @@ int calculate_period() {
   int toNanoSeconds = 1000000000;
   int period = (int)((1.0/FREQ_MAX)*toNanoSeconds);
 
+  printf("PERIODO %d\n", period);
   return period;
 }
 
@@ -93,5 +94,6 @@ int calculate_duty_cycle(float voltage, int period) {
   }
   int duty_cycle = (int)((voltage/VOLT_MAX)*period*0.5 + 0.5*period);
 
+  printf("DUTY: %d\n", duty_cycle);
   return duty_cycle;
 }

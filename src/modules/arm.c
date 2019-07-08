@@ -1,4 +1,4 @@
-// Quanser Shield v.2
+\// Quanser Shield v.2
 // Copyright (C) 2019 Francisco Knebel, Luciano Zancan, Rodrigo Dal Ri
 //
 // This program is free software: you can redistribute it and/or modify
