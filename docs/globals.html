@@ -98,30 +98,34 @@ $(document).ready(function(){initNavTree('globals.html','');});
 <div class="contents">
 <div class="textblock">Here is a list of all documented functions, variables, defines, enums, and typedefs with links to the documentation:</div>
 
-<h3><a id="index_a"></a>- a -</h3><ul>
-<li>ARRAY_SIZE
-: <a class="el" href="spi_8c.html#a25f003de16c08a4888b69f619d70f427">spi.c</a>
+<h3><a id="index_c"></a>- c -</h3><ul>
+<li>calculate_duty_cycle()
+: <a class="el" href="pwm_8c.html#a46ed62c647a29cdb3aa09e0eb289e1de">pwm.c</a>
+, <a class="el" href="pwm_8h.html#a46ed62c647a29cdb3aa09e0eb289e1de">pwm.h</a>
+</li>
+<li>calculate_period()
+: <a class="el" href="pwm_8h.html#a508bf8c3327ce8784b47e531b10fa81f">pwm.h</a>
+, <a class="el" href="pwm_8c.html#a508bf8c3327ce8784b47e531b10fa81f">pwm.c</a>
+</li>
+<li>counted_to_radians()
+: <a class="el" href="decoder_8h.html#aa38dd57fa908146cc8c45e1188bed4b1">decoder.h</a>
+, <a class="el" href="decoder_8c.html#aa38dd57fa908146cc8c45e1188bed4b1">decoder.c</a>
 </li>
 </ul>
 
 
 <h3><a id="index_d"></a>- d -</h3><ul>
-<li>decoder_clear_counter()
-: <a class="el" href="decoder_8c.html#ad8bba108a5dbb063afaede2090dcd316">decoder.c</a>
-</li>
-<li>decoder_init()
-: <a class="el" href="decoder_8c.html#afd37cc07b87fa017a3d67cd5738f7004">decoder.c</a>
-</li>
-<li>decoder_read_counter()
-: <a class="el" href="decoder_8c.html#af5454ed70b39ad9b515fdb01b4903553">decoder.c</a>
+<li>detect_endoftrajectory()
+: <a class="el" href="arm_8c.html#a39b48904ba398ae7533a2c8d787a6721">arm.c</a>
+, <a class="el" href="arm_8h.html#a39b48904ba398ae7533a2c8d787a6721">arm.h</a>
 </li>
 <li>detect_endoftrajectory_elbow()
-: <a class="el" href="arm_8c.html#a0d4b940847a1c1bfcaccd9e9a8a7ee37">arm.c</a>
-, <a class="el" href="arm_8h.html#a0d4b940847a1c1bfcaccd9e9a8a7ee37">arm.h</a>
+: <a class="el" href="arm_8h.html#a0d4b940847a1c1bfcaccd9e9a8a7ee37">arm.h</a>
+, <a class="el" href="arm_8c.html#a0d4b940847a1c1bfcaccd9e9a8a7ee37">arm.c</a>
 </li>
 <li>detect_endoftrajectory_shoulder()
-: <a class="el" href="arm_8c.html#a33aa1fd24908538e43b22bde13517237">arm.c</a>
-, <a class="el" href="arm_8h.html#a33aa1fd24908538e43b22bde13517237">arm.h</a>
+: <a class="el" href="arm_8h.html#a33aa1fd24908538e43b22bde13517237">arm.h</a>
+, <a class="el" href="arm_8c.html#a33aa1fd24908538e43b22bde13517237">arm.c</a>
 </li>
 </ul>
 
@@ -131,9 +135,35 @@ $(document).ready(function(){initNavTree('globals.html','');});
 : <a class="el" href="h__bridge_8c.html#a74fb82fd1350c7a326f48e177308b738">h_bridge.c</a>
 , <a class="el" href="h__bridge_8h.html#a74fb82fd1350c7a326f48e177308b738">h_bridge.h</a>
 </li>
+<li>h_bridge_disable_left()
+: <a class="el" href="h__bridge_8h.html#a1f2f2f293c45719b33b19f35f78b9c81">h_bridge.h</a>
+, <a class="el" href="h__bridge_8c.html#a1f2f2f293c45719b33b19f35f78b9c81">h_bridge.c</a>
+</li>
+<li>h_bridge_disable_right()
+: <a class="el" href="h__bridge_8c.html#ade524c597f990de3984d574ef282581b">h_bridge.c</a>
+, <a class="el" href="h__bridge_8h.html#ade524c597f990de3984d574ef282581b">h_bridge.h</a>
+</li>
 <li>h_bridge_enable()
-: <a class="el" href="h__bridge_8c.html#aa880bec90d9ce0d319c3736568e429c7">h_bridge.c</a>
-, <a class="el" href="h__bridge_8h.html#aa880bec90d9ce0d319c3736568e429c7">h_bridge.h</a>
+: <a class="el" href="h__bridge_8h.html#aa880bec90d9ce0d319c3736568e429c7">h_bridge.h</a>
+, <a class="el" href="h__bridge_8c.html#aa880bec90d9ce0d319c3736568e429c7">h_bridge.c</a>
+</li>
+<li>h_bridge_enable_left()
+: <a class="el" href="h__bridge_8c.html#a46f13157c309fa4a1070f1570c913eaf">h_bridge.c</a>
+, <a class="el" href="h__bridge_8h.html#a46f13157c309fa4a1070f1570c913eaf">h_bridge.h</a>
+</li>
+<li>h_bridge_enable_right()
+: <a class="el" href="h__bridge_8c.html#aaf5a6afdce31a02d63c01e77fda66b66">h_bridge.c</a>
+, <a class="el" href="h__bridge_8h.html#aaf5a6afdce31a02d63c01e77fda66b66">h_bridge.h</a>
+</li>
+<li>h_bridge_status()
+: <a class="el" href="h__bridge_8c.html#af979fb64973d4608d0aef06f70e1f626">h_bridge.c</a>
+</li>
+<li>handle_signal()
+: <a class="el" href="signal__module_8c.html#adb1a37faa77219e1add3c026597c3dec">signal_module.c</a>
+</li>
+<li>handle_termination()
+: <a class="el" href="signal__module_8c.html#aac7cec352840353b32e4d61fce962e3e">signal_module.c</a>
+, <a class="el" href="signal__module_8h.html#aac7cec352840353b32e4d61fce962e3e">signal_module.h</a>
 </li>
 </ul>
 
@@ -144,48 +174,56 @@ $(document).ready(function(){initNavTree('globals.html','');});
 , <a class="el" href="pwm_8h.html#abc718f6835b4c01682047af9ddea9f9b">pwm.h</a>
 </li>
 <li>pwm_enable()
-: <a class="el" href="pwm_8c.html#a28a132858465a2b1d46a46fd179cb19a">pwm.c</a>
-, <a class="el" href="pwm_8h.html#a28a132858465a2b1d46a46fd179cb19a">pwm.h</a>
+: <a class="el" href="pwm_8h.html#a28a132858465a2b1d46a46fd179cb19a">pwm.h</a>
+, <a class="el" href="pwm_8c.html#a28a132858465a2b1d46a46fd179cb19a">pwm.c</a>
 </li>
 <li>pwm_set_duty_cycle()
 : <a class="el" href="pwm_8c.html#a6c03260b8f1c7e3e29bce77750fe0143">pwm.c</a>
 , <a class="el" href="pwm_8h.html#a264425632556910779d274533808f77b">pwm.h</a>
 </li>
 <li>pwm_set_period()
-: <a class="el" href="pwm_8c.html#a3c0ecab2a673445e6f7e951c48715ece">pwm.c</a>
-, <a class="el" href="pwm_8h.html#a3c0ecab2a673445e6f7e951c48715ece">pwm.h</a>
+: <a class="el" href="pwm_8h.html#a3c0ecab2a673445e6f7e951c48715ece">pwm.h</a>
+, <a class="el" href="pwm_8c.html#a3c0ecab2a673445e6f7e951c48715ece">pwm.c</a>
 </li>
 </ul>
 
 
 <h3><a id="index_r"></a>- r -</h3><ul>
 <li>read_arm()
-: <a class="el" href="arm_8c.html#acee4bb0ff83daa3514d6bfff9febcf60">arm.c</a>
-, <a class="el" href="arm_8h.html#acee4bb0ff83daa3514d6bfff9febcf60">arm.h</a>
+: <a class="el" href="arm_8c.html#ab4faf0b17bf5b177cb418d00ee1a7e02">arm.c</a>
+, <a class="el" href="arm_8h.html#ab4faf0b17bf5b177cb418d00ee1a7e02">arm.h</a>
+</li>
+<li>read_decoder()
+: <a class="el" href="decoder_8h.html#a9e3f4571a61373df151d8770dad8ccef">decoder.h</a>
+, <a class="el" href="decoder_8c.html#a9e3f4571a61373df151d8770dad8ccef">decoder.c</a>
+</li>
+<li>read_decoder_gpio_file()
+: <a class="el" href="decoder_8c.html#aeae81952d895dd6bacf077b8f85b9ee3">decoder.c</a>
+</li>
+<li>read_file_end_of_trajectory()
+: <a class="el" href="arm_8c.html#a2f2419e5c96a77617091865457eb09d9">arm.c</a>
+, <a class="el" href="arm_8h.html#a2f2419e5c96a77617091865457eb09d9">arm.h</a>
+</li>
+<li>read_gpio()
+: <a class="el" href="decoder_8c.html#a68662aee95d4890e8b2da82e5693b391">decoder.c</a>
+</li>
+<li>reset_decoder()
+: <a class="el" href="decoder_8c.html#a6f96acb613c3760ecf4814c03fe21ff0">decoder.c</a>
 </li>
 </ul>
 
 
 <h3><a id="index_s"></a>- s -</h3><ul>
-<li>send_error()
-: <a class="el" href="spi_8c.html#a80663046affbac79e2fd323f20b9c0cd">spi.c</a>
-, <a class="el" href="spi_8h.html#a80663046affbac79e2fd323f20b9c0cd">spi.h</a>
+<li>set_pwm()
+: <a class="el" href="pwm_8c.html#a53631d6b26e1d39e1c2bc93af4304718">pwm.c</a>
+, <a class="el" href="pwm_8h.html#a53631d6b26e1d39e1c2bc93af4304718">pwm.h</a>
 </li>
-<li>spi_close()
-: <a class="el" href="spi_8c.html#ac54b0dcdb1c3c7f2c652639ddebb58ce">spi.c</a>
-, <a class="el" href="spi_8h.html#ac54b0dcdb1c3c7f2c652639ddebb58ce">spi.h</a>
-</li>
-<li>spi_init()
-: <a class="el" href="spi_8c.html#a24d546e9f58c3777040725d7e1e23cfd">spi.c</a>
-, <a class="el" href="spi_8h.html#a24d546e9f58c3777040725d7e1e23cfd">spi.h</a>
-</li>
-<li>spi_stat()
-: <a class="el" href="spi_8c.html#a07b8880e4c0569d3ce8c5753ab857dc6">spi.c</a>
-, <a class="el" href="spi_8h.html#a07b8880e4c0569d3ce8c5753ab857dc6">spi.h</a>
-</li>
-<li>spi_transfer()
-: <a class="el" href="spi_8c.html#aa97f8a540b00bcfe195c41aa99945e12">spi.c</a>
-, <a class="el" href="spi_8h.html#aa97f8a540b00bcfe195c41aa99945e12">spi.h</a>
+</ul>
+
+
+<h3><a id="index_x"></a>- x -</h3><ul>
+<li>xsleep()
+: <a class="el" href="decoder_8c.html#acef82b8a9b3d95b84416d739eb4a75b8">decoder.c</a>
 </li>
 </ul>
 </div><!-- contents -->
@@ -193,7 +231,7 @@ $(document).ready(function(){initNavTree('globals.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Jul 2 2019 16:30:57 for QuanserShield2 by
+    <li class="footer">Generated on Tue Jul 9 2019 16:05:12 for QuanserShield2 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>

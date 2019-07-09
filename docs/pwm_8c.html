@@ -107,6 +107,7 @@ $(document).ready(function(){initNavTree('pwm_8c.html','');});
 <p>Module containing PWM helper functions.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;<a class="el" href="pwm_8h_source.html">pwm.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="h__bridge_8h_source.html">h_bridge.h</a>&gt;</code><br />
 </div>
 <p><a href="pwm_8c_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -114,11 +115,11 @@ $(document).ready(function(){initNavTree('pwm_8c.html','');});
 Functions</h2></td></tr>
 <tr class="memitem:a28a132858465a2b1d46a46fd179cb19a"><td class="memItemLeft" align="right" valign="top"><a id="a28a132858465a2b1d46a46fd179cb19a"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pwm_8c.html#a28a132858465a2b1d46a46fd179cb19a">pwm_enable</a> ()</td></tr>
-<tr class="memdesc:a28a132858465a2b1d46a46fd179cb19a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable PWM3. <br /></td></tr>
+<tr class="memdesc:a28a132858465a2b1d46a46fd179cb19a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable PWM1. <br /></td></tr>
 <tr class="separator:a28a132858465a2b1d46a46fd179cb19a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc718f6835b4c01682047af9ddea9f9b"><td class="memItemLeft" align="right" valign="top"><a id="abc718f6835b4c01682047af9ddea9f9b"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pwm_8c.html#abc718f6835b4c01682047af9ddea9f9b">pwm_disable</a> ()</td></tr>
-<tr class="memdesc:abc718f6835b4c01682047af9ddea9f9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable PWM3. <br /></td></tr>
+<tr class="memdesc:abc718f6835b4c01682047af9ddea9f9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable PWM1. <br /></td></tr>
 <tr class="separator:abc718f6835b4c01682047af9ddea9f9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c0ecab2a673445e6f7e951c48715ece"><td class="memItemLeft" align="right" valign="top"><a id="a3c0ecab2a673445e6f7e951c48715ece"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pwm_8c.html#a3c0ecab2a673445e6f7e951c48715ece">pwm_set_period</a> (int period)</td></tr>
@@ -126,8 +127,20 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pwm_8
 <tr class="separator:a3c0ecab2a673445e6f7e951c48715ece"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c03260b8f1c7e3e29bce77750fe0143"><td class="memItemLeft" align="right" valign="top"><a id="a6c03260b8f1c7e3e29bce77750fe0143"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pwm_8c.html#a6c03260b8f1c7e3e29bce77750fe0143">pwm_set_duty_cycle</a> (int duty_cycle)</td></tr>
-<tr class="memdesc:a6c03260b8f1c7e3e29bce77750fe0143"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the duty cycle for PWM3. <br /></td></tr>
+<tr class="memdesc:a6c03260b8f1c7e3e29bce77750fe0143"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the duty cycle for PWM1. <br /></td></tr>
 <tr class="separator:a6c03260b8f1c7e3e29bce77750fe0143"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53631d6b26e1d39e1c2bc93af4304718"><td class="memItemLeft" align="right" valign="top"><a id="a53631d6b26e1d39e1c2bc93af4304718"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pwm_8c.html#a53631d6b26e1d39e1c2bc93af4304718">set_pwm</a> (int period, int duty_cycle)</td></tr>
+<tr class="memdesc:a53631d6b26e1d39e1c2bc93af4304718"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set PWM values of period and duty cycle, enabling it and the h_bridge. <br /></td></tr>
+<tr class="separator:a53631d6b26e1d39e1c2bc93af4304718"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a508bf8c3327ce8784b47e531b10fa81f"><td class="memItemLeft" align="right" valign="top"><a id="a508bf8c3327ce8784b47e531b10fa81f"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pwm_8c.html#a508bf8c3327ce8784b47e531b10fa81f">calculate_period</a> ()</td></tr>
+<tr class="memdesc:a508bf8c3327ce8784b47e531b10fa81f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate period from FREQ_MAX. <br /></td></tr>
+<tr class="separator:a508bf8c3327ce8784b47e531b10fa81f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46ed62c647a29cdb3aa09e0eb289e1de"><td class="memItemLeft" align="right" valign="top"><a id="a46ed62c647a29cdb3aa09e0eb289e1de"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pwm_8c.html#a46ed62c647a29cdb3aa09e0eb289e1de">calculate_duty_cycle</a> (float voltage, int period)</td></tr>
+<tr class="memdesc:a46ed62c647a29cdb3aa09e0eb289e1de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate duty cycle, according to voltage, period and VOLT_MAX. If absolute value of voltage is above VOLT_MAX, voltage will be set to VOLT_MAX. <br /></td></tr>
+<tr class="separator:a46ed62c647a29cdb3aa09e0eb289e1de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -147,7 +160,7 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>str</b> [100]</td></t
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ddb4d7e95cc2d6c8e1ade10a20d7247d.html">modules</a></li><li class="navelem"><a class="el" href="pwm_8c.html">pwm.c</a></li>
-    <li class="footer">Generated on Tue Jul 2 2019 16:30:57 for QuanserShield2 by
+    <li class="footer">Generated on Tue Jul 9 2019 16:05:12 for QuanserShield2 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>

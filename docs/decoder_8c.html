@@ -97,35 +97,61 @@ $(document).ready(function(){initNavTree('decoder_8c.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">decoder.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Module for decoder functions and helpers.  
+<p>Module containing dec helper functions.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;decoder.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="decoder_8h_source.html">decoder.h</a>&gt;</code><br />
 </div>
 <p><a href="decoder_8c_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a598a3330b3c21701223ee0ca14316eca"><td class="memItemLeft" align="right" valign="top"><a id="a598a3330b3c21701223ee0ca14316eca"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PI</b>&#160;&#160;&#160;3.14159265358979323846</td></tr>
+<tr class="separator:a598a3330b3c21701223ee0ca14316eca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:afd37cc07b87fa017a3d67cd5738f7004"><td class="memItemLeft" align="right" valign="top"><a id="afd37cc07b87fa017a3d67cd5738f7004"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="decoder_8c.html#afd37cc07b87fa017a3d67cd5738f7004">decoder_init</a> ()</td></tr>
-<tr class="memdesc:afd37cc07b87fa017a3d67cd5738f7004"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the decoder. <br /></td></tr>
-<tr class="separator:afd37cc07b87fa017a3d67cd5738f7004"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5454ed70b39ad9b515fdb01b4903553"><td class="memItemLeft" align="right" valign="top"><a id="af5454ed70b39ad9b515fdb01b4903553"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="decoder_8c.html#af5454ed70b39ad9b515fdb01b4903553">decoder_read_counter</a> ()</td></tr>
-<tr class="memdesc:af5454ed70b39ad9b515fdb01b4903553"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read decoder counter. <br /></td></tr>
-<tr class="separator:af5454ed70b39ad9b515fdb01b4903553"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8bba108a5dbb063afaede2090dcd316"><td class="memItemLeft" align="right" valign="top"><a id="ad8bba108a5dbb063afaede2090dcd316"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="decoder_8c.html#ad8bba108a5dbb063afaede2090dcd316">decoder_clear_counter</a> ()</td></tr>
-<tr class="memdesc:ad8bba108a5dbb063afaede2090dcd316"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the decoder counter. <br /></td></tr>
-<tr class="separator:ad8bba108a5dbb063afaede2090dcd316"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeae81952d895dd6bacf077b8f85b9ee3"><td class="memItemLeft" align="right" valign="top"><a id="aeae81952d895dd6bacf077b8f85b9ee3"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="decoder_8c.html#aeae81952d895dd6bacf077b8f85b9ee3">read_decoder_gpio_file</a> (int index, int gpio, char *str)</td></tr>
+<tr class="memdesc:aeae81952d895dd6bacf077b8f85b9ee3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables both left and right H-bridge signals. <br /></td></tr>
+<tr class="separator:aeae81952d895dd6bacf077b8f85b9ee3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f96acb613c3760ecf4814c03fe21ff0"><td class="memItemLeft" align="right" valign="top"><a id="a6f96acb613c3760ecf4814c03fe21ff0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="decoder_8c.html#a6f96acb613c3760ecf4814c03fe21ff0">reset_decoder</a> ()</td></tr>
+<tr class="memdesc:a6f96acb613c3760ecf4814c03fe21ff0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset decoder values. <br /></td></tr>
+<tr class="separator:a6f96acb613c3760ecf4814c03fe21ff0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68662aee95d4890e8b2da82e5693b391"><td class="memItemLeft" align="right" valign="top"><a id="a68662aee95d4890e8b2da82e5693b391"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="decoder_8c.html#a68662aee95d4890e8b2da82e5693b391">read_gpio</a> ()</td></tr>
+<tr class="memdesc:a68662aee95d4890e8b2da82e5693b391"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read decoder GPIO files, both high and low bytes. <br /></td></tr>
+<tr class="separator:a68662aee95d4890e8b2da82e5693b391"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acef82b8a9b3d95b84416d739eb4a75b8"><td class="memItemLeft" align="right" valign="top"><a id="acef82b8a9b3d95b84416d739eb4a75b8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="decoder_8c.html#acef82b8a9b3d95b84416d739eb4a75b8">xsleep</a> (int times)</td></tr>
+<tr class="memdesc:acef82b8a9b3d95b84416d739eb4a75b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sleeps for x 'times' using nanosleep defined by <a class="el" href="decoder_8c.html#a9e3f4571a61373df151d8770dad8ccef" title="Returns decoded counter from motor.">read_decoder()</a>. <br /></td></tr>
+<tr class="separator:acef82b8a9b3d95b84416d739eb4a75b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e3f4571a61373df151d8770dad8ccef"><td class="memItemLeft" align="right" valign="top"><a id="a9e3f4571a61373df151d8770dad8ccef"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="decoder_8c.html#a9e3f4571a61373df151d8770dad8ccef">read_decoder</a> ()</td></tr>
+<tr class="memdesc:a9e3f4571a61373df151d8770dad8ccef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns decoded counter from motor. <br /></td></tr>
+<tr class="separator:a9e3f4571a61373df151d8770dad8ccef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa38dd57fa908146cc8c45e1188bed4b1"><td class="memItemLeft" align="right" valign="top"><a id="aa38dd57fa908146cc8c45e1188bed4b1"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="decoder_8c.html#aa38dd57fa908146cc8c45e1188bed4b1">counted_to_radians</a> (int counted)</td></tr>
+<tr class="memdesc:aa38dd57fa908146cc8c45e1188bed4b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts counted value from decoder to radians. <br /></td></tr>
+<tr class="separator:aa38dd57fa908146cc8c45e1188bed4b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a8ce98bc404bfbd9f7d6e56fc956a2760"><td class="memItemLeft" align="right" valign="top"><a id="a8ce98bc404bfbd9f7d6e56fc956a2760"></a>
+struct timespec sleep_time&#160;</td><td class="memItemRight" valign="bottom"><b>end_time</b></td></tr>
+<tr class="separator:a8ce98bc404bfbd9f7d6e56fc956a2760"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Module for decoder functions and helpers. </p>
+<div class="textblock"><p>Module containing dec helper functions. </p>
 <dl class="section author"><dt>Author</dt><dd>Francisco Knebel, Luciano Zancan, Rodrigo Dal Ri </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>26 Jun 2019 </dd></dl>
 
@@ -136,7 +162,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="deco
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ddb4d7e95cc2d6c8e1ade10a20d7247d.html">modules</a></li><li class="navelem"><a class="el" href="decoder_8c.html">decoder.c</a></li>
-    <li class="footer">Generated on Tue Jul 2 2019 16:30:57 for QuanserShield2 by
+    <li class="footer">Generated on Tue Jul 9 2019 16:05:12 for QuanserShield2 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>

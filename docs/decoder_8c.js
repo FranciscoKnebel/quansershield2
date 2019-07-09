@@ -1,6 +1,11 @@
 var decoder_8c =
 [
-    [ "decoder_clear_counter", "decoder_8c.html#ad8bba108a5dbb063afaede2090dcd316", null ],
-    [ "decoder_init", "decoder_8c.html#afd37cc07b87fa017a3d67cd5738f7004", null ],
-    [ "decoder_read_counter", "decoder_8c.html#af5454ed70b39ad9b515fdb01b4903553", null ]
+    [ "PI", "decoder_8c.html#a598a3330b3c21701223ee0ca14316eca", null ],
+    [ "counted_to_radians", "decoder_8c.html#aa38dd57fa908146cc8c45e1188bed4b1", null ],
+    [ "read_decoder", "decoder_8c.html#a9e3f4571a61373df151d8770dad8ccef", null ],
+    [ "read_decoder_gpio_file", "decoder_8c.html#aeae81952d895dd6bacf077b8f85b9ee3", null ],
+    [ "read_gpio", "decoder_8c.html#a68662aee95d4890e8b2da82e5693b391", null ],
+    [ "reset_decoder", "decoder_8c.html#a6f96acb613c3760ecf4814c03fe21ff0", null ],
+    [ "xsleep", "decoder_8c.html#acef82b8a9b3d95b84416d739eb4a75b8", null ],
+    [ "end_time", "decoder_8c.html#a8ce98bc404bfbd9f7d6e56fc956a2760", null ]
 ];

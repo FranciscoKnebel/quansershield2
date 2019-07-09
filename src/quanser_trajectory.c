@@ -18,7 +18,7 @@
  * @author Francisco Knebel, Luciano Zancan, Rodrigo Dal Ri
  * @file quanser_trajectory.c
  * @date 26 Jun 2019
- * @brief Detect if end of trajectory of elbow 1 and 2, and shoulder 1 and 2
+ * @brief Detect if end of trajectory of elbows 1 and 2, and shoulders 1 and 2.
  */
 
 #include <quanser_trajectory.h>

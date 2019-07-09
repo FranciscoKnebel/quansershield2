@@ -1,4 +1,4 @@
-Intel Galileo Gen 2 shield for use with the Quanser 2D\+S\+F\+JE robot.
+Intel Galileo Gen 2 shield for use with the Quanser 2D\+S\+F\+JE robot. Documentation can be found in the {\ttfamily docs/} folder or by accessing the link \href{https://franciscoknebel.github.io/quansershield2/}{\texttt{ https\+://franciscoknebel.\+github.\+io/quansershield2/}}.
 
 \subsection*{Prerequisites}
 
@@ -11,6 +11,44 @@ Intel Galileo Gen 2 shield for use with the Quanser 2D\+S\+F\+JE robot.
 
 \item G\+CC
 \item Make
+\end{DoxyItemize}
+
+\subsection*{File Hierarchy}
+
+
+\begin{DoxyItemize}
+\item bin
+\begin{DoxyItemize}
+\item Temporary folder for built program binaries.
+\end{DoxyItemize}
+\item docs
+\begin{DoxyItemize}
+\item Project documentation, built with Doxygen.
+\end{DoxyItemize}
+\item ext
+\begin{DoxyItemize}
+\item External files, used in documentation.
+\end{DoxyItemize}
+\item include
+\begin{DoxyItemize}
+\item Header Files.
+\end{DoxyItemize}
+\item init
+\begin{DoxyItemize}
+\item Intel Galileo {\ttfamily /etc/init.d} files to setup pins.
+\end{DoxyItemize}
+\item lib
+\begin{DoxyItemize}
+\item Folder for storage of built library files.
+\end{DoxyItemize}
+\item scripts
+\begin{DoxyItemize}
+\item Scripts used to automate project tasks.
+\end{DoxyItemize}
+\item src
+\begin{DoxyItemize}
+\item Project source files.
+\end{DoxyItemize}
 \end{DoxyItemize}
 
 \subsection*{Makefile}
@@ -33,7 +71,7 @@ Compile the project documentation to {\ttfamily docs/} folder.
 \end{DoxyCode}
 
 
-Then you can open the {\ttfamily docs/html/index.\+html} file and search the {\ttfamily Files} section for code documentation. To change the docs generation configuration, you need to install the {\ttfamily doxygen-\/gui} config and run\+: 
+Then you can open the {\ttfamily docs/index.\+html} file and search the {\ttfamily Files} section for code documentation. To change the docs generation configuration, you need to install the {\ttfamily doxygen-\/gui} config and run\+: 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\$ doxywizard Doxyfile}
 \end{DoxyCode}

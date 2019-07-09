@@ -18,7 +18,7 @@
  * @file quanser_pwm.c
  * @author Francisco Knebel, Luciano Zancan, Rodrigo Dal Ri
  * @date 26 Jun 2019
- * @brief Receive a duty cycle for PWM and enable it.
+ * @brief Receive a voltage and enables PWM and bridge. Has end of trajectory detection.
  */
 
 #include <quanser_pwm.h>

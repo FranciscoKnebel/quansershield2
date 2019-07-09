@@ -9,12 +9,23 @@ Module containing H-\/bridge function helpers and manipulators.
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{h__bridge_8c_a74fb82fd1350c7a326f48e177308b738}\label{h__bridge_8c_a74fb82fd1350c7a326f48e177308b738}} 
+int \mbox{\hyperlink{h__bridge_8c_a1f2f2f293c45719b33b19f35f78b9c81}{h\+\_\+bridge\+\_\+disable\+\_\+left}} ()
+\begin{DoxyCompactList}\small\item\em Disable the H-\/bridge left signal, on G\+P\+IO. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{h__bridge_8c_ade524c597f990de3984d574ef282581b}\label{h__bridge_8c_ade524c597f990de3984d574ef282581b}} 
+int \mbox{\hyperlink{h__bridge_8c_ade524c597f990de3984d574ef282581b}{h\+\_\+bridge\+\_\+disable\+\_\+right}} ()
+\begin{DoxyCompactList}\small\item\em Disable the H-\/bridge right signal, on G\+P\+IO. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{h__bridge_8c_a46f13157c309fa4a1070f1570c913eaf}{h\+\_\+bridge\+\_\+enable\+\_\+left}} ()
+\begin{DoxyCompactList}\small\item\em Enable the H-\/bridge left signal, on G\+P\+IO, and disables right. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{h__bridge_8c_aaf5a6afdce31a02d63c01e77fda66b66}\label{h__bridge_8c_aaf5a6afdce31a02d63c01e77fda66b66}} 
+int \mbox{\hyperlink{h__bridge_8c_aaf5a6afdce31a02d63c01e77fda66b66}{h\+\_\+bridge\+\_\+enable\+\_\+right}} ()
+\begin{DoxyCompactList}\small\item\em Enable the H-\/bridge right signal, on G\+P\+IO, and disables left. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{h__bridge_8c_a74fb82fd1350c7a326f48e177308b738}{h\+\_\+bridge\+\_\+disable}} ()
-\begin{DoxyCompactList}\small\item\em Disable the H-\/bridge, on G\+P\+I\+O38. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{h__bridge_8c_aa880bec90d9ce0d319c3736568e429c7}\label{h__bridge_8c_aa880bec90d9ce0d319c3736568e429c7}} 
+\begin{DoxyCompactList}\small\item\em Disables both left and right H-\/bridge signals. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{h__bridge_8c_aa880bec90d9ce0d319c3736568e429c7}{h\+\_\+bridge\+\_\+enable}} ()
-\begin{DoxyCompactList}\small\item\em Enable the H-\/bridge, on G\+P\+I\+O38. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Enables both left and right H-\/bridge signals. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{h__bridge_8c_af979fb64973d4608d0aef06f70e1f626}\label{h__bridge_8c_af979fb64973d4608d0aef06f70e1f626}} 
+int \mbox{\hyperlink{h__bridge_8c_af979fb64973d4608d0aef06f70e1f626}{h\+\_\+bridge\+\_\+status}} ()
+\begin{DoxyCompactList}\small\item\em Returns the values of both left and right H-\/bridge signals. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -26,3 +37,101 @@ Francisco Knebel, Luciano Zancan, Rodrigo Dal Ri
 \begin{DoxyDate}{Date}
 26 Jun 2019 
 \end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{h__bridge_8c_a74fb82fd1350c7a326f48e177308b738}\label{h__bridge_8c_a74fb82fd1350c7a326f48e177308b738}} 
+\index{h\_bridge.c@{h\_bridge.c}!h\_bridge\_disable@{h\_bridge\_disable}}
+\index{h\_bridge\_disable@{h\_bridge\_disable}!h\_bridge.c@{h\_bridge.c}}
+\subsubsection{\texorpdfstring{h\_bridge\_disable()}{h\_bridge\_disable()}}
+{\footnotesize\ttfamily int h\+\_\+bridge\+\_\+disable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Disables both left and right H-\/bridge signals. 
+
+Disable the H-\/bridge. 
+
+Definition at line 64 of file h\+\_\+bridge.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{64                       \{}
+\DoxyCodeLine{65   printf(\textcolor{stringliteral}{"Disabling both sides of h\_bridge.\(\backslash\)n"});}
+\DoxyCodeLine{66   pputs(\textcolor{stringliteral}{"/sys/class/gpio/gpio11/value"}, \textcolor{stringliteral}{"0"});}
+\DoxyCodeLine{67   pputs(\textcolor{stringliteral}{"/sys/class/gpio/gpio12/value"}, \textcolor{stringliteral}{"0"});}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69   \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{70 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{h__bridge_8c_a1f2f2f293c45719b33b19f35f78b9c81}\label{h__bridge_8c_a1f2f2f293c45719b33b19f35f78b9c81}} 
+\index{h\_bridge.c@{h\_bridge.c}!h\_bridge\_disable\_left@{h\_bridge\_disable\_left}}
+\index{h\_bridge\_disable\_left@{h\_bridge\_disable\_left}!h\_bridge.c@{h\_bridge.c}}
+\subsubsection{\texorpdfstring{h\_bridge\_disable\_left()}{h\_bridge\_disable\_left()}}
+{\footnotesize\ttfamily int h\+\_\+bridge\+\_\+disable\+\_\+left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Disable the H-\/bridge left signal, on G\+P\+IO. 
+
+Disable the H-\/bridge (left and right). 
+
+Definition at line 29 of file h\+\_\+bridge.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29                             \{}
+\DoxyCodeLine{30   printf(\textcolor{stringliteral}{"Disabling left side of h\_bridge.\(\backslash\)n"});}
+\DoxyCodeLine{31   \textcolor{keywordflow}{return} pputs(\textcolor{stringliteral}{"/sys/class/gpio/gpio11/value"}, \textcolor{stringliteral}{"0"});}
+\DoxyCodeLine{32 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{h__bridge_8c_aa880bec90d9ce0d319c3736568e429c7}\label{h__bridge_8c_aa880bec90d9ce0d319c3736568e429c7}} 
+\index{h\_bridge.c@{h\_bridge.c}!h\_bridge\_enable@{h\_bridge\_enable}}
+\index{h\_bridge\_enable@{h\_bridge\_enable}!h\_bridge.c@{h\_bridge.c}}
+\subsubsection{\texorpdfstring{h\_bridge\_enable()}{h\_bridge\_enable()}}
+{\footnotesize\ttfamily int h\+\_\+bridge\+\_\+enable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Enables both left and right H-\/bridge signals. 
+
+Enable the H-\/bridge. 
+
+Definition at line 75 of file h\+\_\+bridge.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{75                      \{}
+\DoxyCodeLine{76   printf(\textcolor{stringliteral}{"Enabling both sides of h\_bridge.\(\backslash\)n"});}
+\DoxyCodeLine{77   pputs(\textcolor{stringliteral}{"/sys/class/gpio/gpio11/value"}, \textcolor{stringliteral}{"1"});}
+\DoxyCodeLine{78   pputs(\textcolor{stringliteral}{"/sys/class/gpio/gpio12/value"}, \textcolor{stringliteral}{"1"});}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80   \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{81 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{h__bridge_8c_a46f13157c309fa4a1070f1570c913eaf}\label{h__bridge_8c_a46f13157c309fa4a1070f1570c913eaf}} 
+\index{h\_bridge.c@{h\_bridge.c}!h\_bridge\_enable\_left@{h\_bridge\_enable\_left}}
+\index{h\_bridge\_enable\_left@{h\_bridge\_enable\_left}!h\_bridge.c@{h\_bridge.c}}
+\subsubsection{\texorpdfstring{h\_bridge\_enable\_left()}{h\_bridge\_enable\_left()}}
+{\footnotesize\ttfamily int h\+\_\+bridge\+\_\+enable\+\_\+left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Enable the H-\/bridge left signal, on G\+P\+IO, and disables right. 
+
+Enable the H-\/bridge (left and right). 
+
+Definition at line 46 of file h\+\_\+bridge.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{46                            \{}
+\DoxyCodeLine{47   \mbox{\hyperlink{h__bridge_8c_ade524c597f990de3984d574ef282581b}{h\_bridge\_disable\_right}}();}
+\DoxyCodeLine{48   printf(\textcolor{stringliteral}{"Enabling left side of h\_bridge.\(\backslash\)n"});}
+\DoxyCodeLine{49   \textcolor{keywordflow}{return} pputs(\textcolor{stringliteral}{"/sys/class/gpio/gpio11/value"}, \textcolor{stringliteral}{"1"});}
+\DoxyCodeLine{50 \}}
+
+\end{DoxyCode}

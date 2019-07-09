@@ -107,6 +107,13 @@ $(document).ready(function(){initNavTree('arm_8h.html','');});
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;galileo2io.h&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;fcntl.h&gt;</code><br />
+<code>#include &lt;poll.h&gt;</code><br />
+<code>#include &lt;pthread.h&gt;</code><br />
+<code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="pwm_8h_source.html">pwm.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="h__bridge_8h_source.html">h_bridge.h</a>&gt;</code><br />
 </div>
 <p><a href="arm_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -120,10 +127,18 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arm_8
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arm_8h.html#a33aa1fd24908538e43b22bde13517237">detect_endoftrajectory_shoulder</a> (int index)</td></tr>
 <tr class="memdesc:a33aa1fd24908538e43b22bde13517237"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detect if reached end of trajectory in 'index' shoulder. <br /></td></tr>
 <tr class="separator:a33aa1fd24908538e43b22bde13517237"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acee4bb0ff83daa3514d6bfff9febcf60"><td class="memItemLeft" align="right" valign="top"><a id="acee4bb0ff83daa3514d6bfff9febcf60"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arm_8h.html#acee4bb0ff83daa3514d6bfff9febcf60">read_arm</a> (int i)</td></tr>
-<tr class="memdesc:acee4bb0ff83daa3514d6bfff9febcf60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read value of arm element and returns if finished (0) or not (1) <br /></td></tr>
-<tr class="separator:acee4bb0ff83daa3514d6bfff9febcf60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4faf0b17bf5b177cb418d00ee1a7e02"><td class="memItemLeft" align="right" valign="top"><a id="ab4faf0b17bf5b177cb418d00ee1a7e02"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arm_8h.html#ab4faf0b17bf5b177cb418d00ee1a7e02">read_arm</a> (int i)</td></tr>
+<tr class="memdesc:ab4faf0b17bf5b177cb418d00ee1a7e02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates threads to detect end of trajectory for elbow or shoulder. <br /></td></tr>
+<tr class="separator:ab4faf0b17bf5b177cb418d00ee1a7e02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f2419e5c96a77617091865457eb09d9"><td class="memItemLeft" align="right" valign="top"><a id="a2f2419e5c96a77617091865457eb09d9"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arm_8h.html#a2f2419e5c96a77617091865457eb09d9">read_file_end_of_trajectory</a> (int gpio)</td></tr>
+<tr class="memdesc:a2f2419e5c96a77617091865457eb09d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read GPIO file and waits for interrupt, for use with end of trajectory. Disables PWM and H_bridge when reached. <br /></td></tr>
+<tr class="separator:a2f2419e5c96a77617091865457eb09d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39b48904ba398ae7533a2c8d787a6721"><td class="memItemLeft" align="right" valign="top"><a id="a39b48904ba398ae7533a2c8d787a6721"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arm_8h.html#a39b48904ba398ae7533a2c8d787a6721">detect_endoftrajectory</a> ()</td></tr>
+<tr class="memdesc:a39b48904ba398ae7533a2c8d787a6721"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set all threads to detect end of trajectory in both shoulder and elbow. <br /></td></tr>
+<tr class="separator:a39b48904ba398ae7533a2c8d787a6721"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Header for the arm module, containing arm function helpers and manipulators. </p>
@@ -137,7 +152,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arm_8
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="arm_8h.html">arm.h</a></li>
-    <li class="footer">Generated on Tue Jul 2 2019 16:30:57 for QuanserShield2 by
+    <li class="footer">Generated on Tue Jul 9 2019 16:05:12 for QuanserShield2 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>

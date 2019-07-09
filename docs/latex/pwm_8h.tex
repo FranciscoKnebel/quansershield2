@@ -7,21 +7,46 @@ Header for the P\+WM module, containing P\+WM function helpers and manipulators.
 
 {\ttfamily \#include $<$galileo2io.\+h$>$}\newline
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{pwm_8h_a65fd90f232757535f02c46a885e49012}\label{pwm_8h_a65fd90f232757535f02c46a885e49012}} 
+\#define {\bfseries T\+I\+M\+E\+\_\+\+S\+T\+EP}~10000
+\item 
+\mbox{\Hypertarget{pwm_8h_aacaca0988244bd3a888ca5befa89f44b}\label{pwm_8h_aacaca0988244bd3a888ca5befa89f44b}} 
+\#define {\bfseries P\+W\+M\+\_\+\+P\+E\+R\+I\+OD}~1500000
+\item 
+\mbox{\Hypertarget{pwm_8h_a94163a2b46e66d27bede4639532eed5c}\label{pwm_8h_a94163a2b46e66d27bede4639532eed5c}} 
+\#define {\bfseries F\+R\+E\+Q\+\_\+\+M\+AX}~1500
+\item 
+\mbox{\Hypertarget{pwm_8h_a8bcc4b483761bdaacbd040d2e49be549}\label{pwm_8h_a8bcc4b483761bdaacbd040d2e49be549}} 
+\#define {\bfseries V\+O\+L\+T\+\_\+\+M\+AX}~27
+\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{pwm_8h_a28a132858465a2b1d46a46fd179cb19a}\label{pwm_8h_a28a132858465a2b1d46a46fd179cb19a}} 
 int \mbox{\hyperlink{pwm_8h_a28a132858465a2b1d46a46fd179cb19a}{pwm\+\_\+enable}} ()
-\begin{DoxyCompactList}\small\item\em Enable P\+W\+M3. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Enable P\+W\+M1. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{pwm_8h_abc718f6835b4c01682047af9ddea9f9b}\label{pwm_8h_abc718f6835b4c01682047af9ddea9f9b}} 
 int \mbox{\hyperlink{pwm_8h_abc718f6835b4c01682047af9ddea9f9b}{pwm\+\_\+disable}} ()
-\begin{DoxyCompactList}\small\item\em Disable P\+W\+M3. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Disable P\+W\+M1. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{pwm_8h_a3c0ecab2a673445e6f7e951c48715ece}\label{pwm_8h_a3c0ecab2a673445e6f7e951c48715ece}} 
 int \mbox{\hyperlink{pwm_8h_a3c0ecab2a673445e6f7e951c48715ece}{pwm\+\_\+set\+\_\+period}} (int period)
 \begin{DoxyCompactList}\small\item\em Set the period on the P\+WM device. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{pwm_8h_a264425632556910779d274533808f77b}\label{pwm_8h_a264425632556910779d274533808f77b}} 
 int \mbox{\hyperlink{pwm_8h_a264425632556910779d274533808f77b}{pwm\+\_\+set\+\_\+duty\+\_\+cycle}} (int pwm\+\_\+set\+\_\+duty\+\_\+cycle)
-\begin{DoxyCompactList}\small\item\em Set the duty cycle for P\+W\+M3. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Set the duty cycle for P\+W\+M1. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{pwm_8h_a53631d6b26e1d39e1c2bc93af4304718}\label{pwm_8h_a53631d6b26e1d39e1c2bc93af4304718}} 
+int \mbox{\hyperlink{pwm_8h_a53631d6b26e1d39e1c2bc93af4304718}{set\+\_\+pwm}} (int period, int duty\+\_\+cycle)
+\begin{DoxyCompactList}\small\item\em Set P\+WM values of period and duty cycle, enabling it and the h\+\_\+bridge. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{pwm_8h_a508bf8c3327ce8784b47e531b10fa81f}\label{pwm_8h_a508bf8c3327ce8784b47e531b10fa81f}} 
+int \mbox{\hyperlink{pwm_8h_a508bf8c3327ce8784b47e531b10fa81f}{calculate\+\_\+period}} ()
+\begin{DoxyCompactList}\small\item\em Calculate period from F\+R\+E\+Q\+\_\+\+M\+AX. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{pwm_8h_a46ed62c647a29cdb3aa09e0eb289e1de}\label{pwm_8h_a46ed62c647a29cdb3aa09e0eb289e1de}} 
+int \mbox{\hyperlink{pwm_8h_a46ed62c647a29cdb3aa09e0eb289e1de}{calculate\+\_\+duty\+\_\+cycle}} (float voltage, int period)
+\begin{DoxyCompactList}\small\item\em Calculate duty cycle, according to voltage, period and V\+O\+L\+T\+\_\+\+M\+AX. If absolute value of voltage is above V\+O\+L\+T\+\_\+\+M\+AX, voltage will be set to V\+O\+L\+T\+\_\+\+M\+AX. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}

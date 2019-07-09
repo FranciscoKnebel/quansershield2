@@ -24,13 +24,16 @@
 #include <h_bridge.h>
 
 /**
- * @brief Disable the H-bridge, on GPIO.
+ * @brief Disable the H-bridge left signal, on GPIO.
  */
 int h_bridge_disable_left() {
   printf("Disabling left side of h_bridge.\n");
   return pputs("/sys/class/gpio/gpio11/value", "0");
 }
 
+/**
+ * @brief Disable the H-bridge right signal, on GPIO.
+ */
 int h_bridge_disable_right() {
   printf("Disabling right side of h_bridge.\n");
   return pputs("/sys/class/gpio/gpio12/value", "0");
@@ -38,7 +41,7 @@ int h_bridge_disable_right() {
 
 
 /**
- * @brief Enable the H-bridge, on GPIO.
+ * @brief Enable the H-bridge left signal, on GPIO, and disables right.
  */
 int h_bridge_enable_left() {
   h_bridge_disable_right();
@@ -46,12 +49,18 @@ int h_bridge_enable_left() {
   return pputs("/sys/class/gpio/gpio11/value", "1");
 }
 
+/**
+ * @brief Enable the H-bridge right signal, on GPIO, and disables left.
+ */
 int h_bridge_enable_right() {
   h_bridge_disable_left();
   printf("Enabling right side of h_bridge.\n");
   return pputs("/sys/class/gpio/gpio12/value", "1");
 }
 
+/**
+ * @brief Disables both left and right H-bridge signals.
+ */
 int h_bridge_disable(){
   printf("Disabling both sides of h_bridge.\n");
   pputs("/sys/class/gpio/gpio11/value", "0");
@@ -60,6 +69,9 @@ int h_bridge_disable(){
   return 0;
 }
 
+/**
+ * @brief Enables both left and right H-bridge signals.
+ */
 int h_bridge_enable(){
   printf("Enabling both sides of h_bridge.\n");
   pputs("/sys/class/gpio/gpio11/value", "1");
@@ -68,6 +80,9 @@ int h_bridge_enable(){
   return 0;
 }
 
+/**
+ * @brief Returns the values of both left and right H-bridge signals.
+ */
 int h_bridge_status() {
   char buffer[2];
 

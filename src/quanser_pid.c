@@ -18,7 +18,7 @@
  * @file quanser_pid.c
  * @author Francisco Knebel, Luciano Zancan, Rodrigo Dal Ri
  * @date 07 Jul 2019
- * @brief Run PID communication for reading the encoders.
+ * @brief PID algorithm while reading the encoders and enabling motor. Has end of trajectory detections.
  */
 
 #include <quanser_pid.h>

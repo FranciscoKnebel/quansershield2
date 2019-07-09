@@ -1,6 +1,7 @@
 # Quanser Shield v.2
 
 Intel Galileo Gen 2 shield for use with the Quanser 2DSFJE robot.
+Documentation can be found in the `docs/` folder or by accessing the link [https://franciscoknebel.github.io/quansershield2/](https://franciscoknebel.github.io/quansershield2/).
 
 ## Prerequisites
 - Doxygen
@@ -10,6 +11,24 @@ Intel Galileo Gen 2 shield for use with the Quanser 2DSFJE robot.
 
 - GCC
 - Make
+
+## File Hierarchy
+- bin
+  - Temporary folder for built program binaries.
+- docs
+  - Project documentation, built with Doxygen.
+- ext
+  - External files, used in documentation.
+- include
+  - Header Files.
+- init
+  - Intel Galileo `/etc/init.d` files to setup pins.
+- lib
+  - Folder for storage of built library files.
+- scripts
+  - Scripts used to automate project tasks.
+- src
+  - Project source files.
 
 ## Makefile
 
@@ -25,7 +44,7 @@ Compile the project documentation to `docs/` folder.
   $ doxygen
 ```
 
-Then you can open the `docs/html/index.html` file and search the `Files` section for code documentation.
+Then you can open the `docs/index.html` file and search the `Files` section for code documentation.
 To change the docs generation configuration, you need to install the `doxygen-gui` config and run:
 ```
   $ doxywizard Doxyfile

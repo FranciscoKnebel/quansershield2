@@ -2,7 +2,7 @@
  * @file quanser_pwm.h
  * @author Francisco Knebel, Luciano Zancan, Rodrigo Dal Ri
  * @date 26 Jun 2019
- * @brief Module containing PWM helper functions.
+ * @brief Module containing functions with use for PWM program.
  */
 
 #ifndef QUANSER_PWM_H

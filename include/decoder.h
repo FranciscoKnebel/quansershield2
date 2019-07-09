@@ -1,9 +1,8 @@
 /**
- * @file dec.h
+ * @file decoder.h
  * @author Francisco Knebel, Luciano Zancan, Rodrigo Dal Ri
  * @date 26 Jun 2019
- * @brief Header for the decoder module, containing arm function helpers and
- * manipulators.
+ * @brief Header for the decoder module, containing functions to read the arm decoder and cnvert to radians.
  */
 
 #ifndef DECODER_H_

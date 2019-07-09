@@ -38,7 +38,7 @@ int main(int argc, char const *argv[]){
       printf("%s\n",buffer);
       usleep(TIME_STEP*10);
       i = i+1;
-      if (i>=12){
+      if (i >= 12){
         return 0;
       }
 

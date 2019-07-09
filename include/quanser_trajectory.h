@@ -2,6 +2,7 @@
  * @file quanser_trajectory.h
  * @author Francisco Knebel, Luciano Zancan, Rodrigo Dal Ri
  * @date 26 Jun 2019
+ * @brief Module for end of trajectory programs.
  */
 
 #ifndef QUANSER_TRAJECTORY_H

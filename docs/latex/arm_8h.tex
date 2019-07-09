@@ -7,6 +7,13 @@ Header for the arm module, containing arm function helpers and manipulators.
 
 {\ttfamily \#include $<$galileo2io.\+h$>$}\newline
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+{\ttfamily \#include $<$poll.\+h$>$}\newline
+{\ttfamily \#include $<$pthread.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$pwm.\+h$>$}\newline
+{\ttfamily \#include $<$h\+\_\+bridge.\+h$>$}\newline
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -16,9 +23,15 @@ int \mbox{\hyperlink{arm_8h_a0d4b940847a1c1bfcaccd9e9a8a7ee37}{detect\+\_\+endof
 \mbox{\Hypertarget{arm_8h_a33aa1fd24908538e43b22bde13517237}\label{arm_8h_a33aa1fd24908538e43b22bde13517237}} 
 int \mbox{\hyperlink{arm_8h_a33aa1fd24908538e43b22bde13517237}{detect\+\_\+endoftrajectory\+\_\+shoulder}} (int index)
 \begin{DoxyCompactList}\small\item\em Detect if reached end of trajectory in \textquotesingle{}index\textquotesingle{} shoulder. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{arm_8h_acee4bb0ff83daa3514d6bfff9febcf60}\label{arm_8h_acee4bb0ff83daa3514d6bfff9febcf60}} 
-int \mbox{\hyperlink{arm_8h_acee4bb0ff83daa3514d6bfff9febcf60}{read\+\_\+arm}} (int i)
-\begin{DoxyCompactList}\small\item\em Read value of arm element and returns if finished (0) or not (1) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\mbox{\Hypertarget{arm_8h_ab4faf0b17bf5b177cb418d00ee1a7e02}\label{arm_8h_ab4faf0b17bf5b177cb418d00ee1a7e02}} 
+void \mbox{\hyperlink{arm_8h_ab4faf0b17bf5b177cb418d00ee1a7e02}{read\+\_\+arm}} (int i)
+\begin{DoxyCompactList}\small\item\em Creates threads to detect end of trajectory for elbow or shoulder. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{arm_8h_a2f2419e5c96a77617091865457eb09d9}\label{arm_8h_a2f2419e5c96a77617091865457eb09d9}} 
+int \mbox{\hyperlink{arm_8h_a2f2419e5c96a77617091865457eb09d9}{read\+\_\+file\+\_\+end\+\_\+of\+\_\+trajectory}} (int gpio)
+\begin{DoxyCompactList}\small\item\em Read G\+P\+IO file and waits for interrupt, for use with end of trajectory. Disables P\+WM and H\+\_\+bridge when reached. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{arm_8h_a39b48904ba398ae7533a2c8d787a6721}\label{arm_8h_a39b48904ba398ae7533a2c8d787a6721}} 
+void \mbox{\hyperlink{arm_8h_a39b48904ba398ae7533a2c8d787a6721}{detect\+\_\+endoftrajectory}} ()
+\begin{DoxyCompactList}\small\item\em Set all threads to detect end of trajectory in both shoulder and elbow. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}

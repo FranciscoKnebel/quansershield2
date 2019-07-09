@@ -26,7 +26,10 @@
 
 struct timespec sleep_time, end_time;
 
-int save(int index, int gpio, char* str) {
+/**
+ * @brief Disables both left and right H-bridge signals.
+ */
+int read_decoder_gpio_file(int index, int gpio, char* str) {
   char value[1];
   char gpio_file[50];
   sprintf(gpio_file, "/sys/class/gpio/gpio%d/value", gpio);
@@ -37,6 +40,9 @@ int save(int index, int gpio, char* str) {
   return index;
 }
 
+/**
+ * @brief Reset decoder values.
+ */
 void reset_decoder() {
   printf("Resetting decoder.\n");
   pputs("/sys/class/gpio/gpio5/value", "0");
@@ -45,6 +51,9 @@ void reset_decoder() {
   pputs("/sys/class/gpio/gpio5/value", "1"); // set ~rst to 1 = not reset
 }
 
+/**
+ * @brief Read decoder GPIO files, both high and low bytes.
+ */
 int read_gpio() {
   char bin[17] = {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'};
   int gpio[8] = { 13, 6, 0, 1, 38, 40, 4, 10 };
@@ -60,7 +69,7 @@ int read_gpio() {
   for (i = 0; i < 16; i++) {
     if (i < 8) {
       // HIGH
-      save(i, gpio[i], bin);
+      read_decoder_gpio_file(i, gpio[i], bin);
     } else {
       // LOW
       if (i == 8) {
@@ -68,7 +77,7 @@ int read_gpio() {
         pputs("/sys/class/gpio/gpio7/value", "1"); // set sel
         xsleep(1);
       }
-      save(i, gpio[i-8], bin);
+      read_decoder_gpio_file(i, gpio[i-8], bin);
     }
     xsleep(1);
   }
@@ -84,6 +93,9 @@ int read_gpio() {
   return counter;
 }
 
+/**
+ * @brief Sleeps for x 'times' using nanosleep defined by read_decoder().
+ */
 void xsleep(int times) {
   int count = 0;
 
@@ -93,6 +105,9 @@ void xsleep(int times) {
   }
 }
 
+/**
+ * @brief Returns decoded counter from motor.
+ */
 int read_decoder() {
   int counted = 0;
   sleep_time.tv_sec = 0;
@@ -111,6 +126,9 @@ int read_decoder() {
   return counted;
 }
 
+/**
+ * @brief Converts counted value from decoder to radians.
+ */
 int counted_to_radians(int counted) {
   int degrees = 0;
   int radians = 0;

@@ -2,26 +2,47 @@
 \label{decoder_8c}\index{src/modules/decoder.c@{src/modules/decoder.c}}
 
 
-Module for decoder functions and helpers.  
+Module containing dec helper functions.  
 
 
 {\ttfamily \#include $<$decoder.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{decoder_8c_a598a3330b3c21701223ee0ca14316eca}\label{decoder_8c_a598a3330b3c21701223ee0ca14316eca}} 
+\#define {\bfseries PI}~3.\+14159265358979323846
+\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{decoder_8c_afd37cc07b87fa017a3d67cd5738f7004}\label{decoder_8c_afd37cc07b87fa017a3d67cd5738f7004}} 
-void \mbox{\hyperlink{decoder_8c_afd37cc07b87fa017a3d67cd5738f7004}{decoder\+\_\+init}} ()
-\begin{DoxyCompactList}\small\item\em Initializes the decoder. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{decoder_8c_af5454ed70b39ad9b515fdb01b4903553}\label{decoder_8c_af5454ed70b39ad9b515fdb01b4903553}} 
-int \mbox{\hyperlink{decoder_8c_af5454ed70b39ad9b515fdb01b4903553}{decoder\+\_\+read\+\_\+counter}} ()
-\begin{DoxyCompactList}\small\item\em Read decoder counter. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{decoder_8c_ad8bba108a5dbb063afaede2090dcd316}\label{decoder_8c_ad8bba108a5dbb063afaede2090dcd316}} 
-void \mbox{\hyperlink{decoder_8c_ad8bba108a5dbb063afaede2090dcd316}{decoder\+\_\+clear\+\_\+counter}} ()
-\begin{DoxyCompactList}\small\item\em Clear the decoder counter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\mbox{\Hypertarget{decoder_8c_aeae81952d895dd6bacf077b8f85b9ee3}\label{decoder_8c_aeae81952d895dd6bacf077b8f85b9ee3}} 
+int \mbox{\hyperlink{decoder_8c_aeae81952d895dd6bacf077b8f85b9ee3}{read\+\_\+decoder\+\_\+gpio\+\_\+file}} (int index, int gpio, char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Disables both left and right H-\/bridge signals. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{decoder_8c_a6f96acb613c3760ecf4814c03fe21ff0}\label{decoder_8c_a6f96acb613c3760ecf4814c03fe21ff0}} 
+void \mbox{\hyperlink{decoder_8c_a6f96acb613c3760ecf4814c03fe21ff0}{reset\+\_\+decoder}} ()
+\begin{DoxyCompactList}\small\item\em Reset decoder values. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{decoder_8c_a68662aee95d4890e8b2da82e5693b391}\label{decoder_8c_a68662aee95d4890e8b2da82e5693b391}} 
+int \mbox{\hyperlink{decoder_8c_a68662aee95d4890e8b2da82e5693b391}{read\+\_\+gpio}} ()
+\begin{DoxyCompactList}\small\item\em Read decoder G\+P\+IO files, both high and low bytes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{decoder_8c_acef82b8a9b3d95b84416d739eb4a75b8}\label{decoder_8c_acef82b8a9b3d95b84416d739eb4a75b8}} 
+void \mbox{\hyperlink{decoder_8c_acef82b8a9b3d95b84416d739eb4a75b8}{xsleep}} (int times)
+\begin{DoxyCompactList}\small\item\em Sleeps for x \textquotesingle{}times\textquotesingle{} using nanosleep defined by \mbox{\hyperlink{decoder_8c_a9e3f4571a61373df151d8770dad8ccef}{read\+\_\+decoder()}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{decoder_8c_a9e3f4571a61373df151d8770dad8ccef}\label{decoder_8c_a9e3f4571a61373df151d8770dad8ccef}} 
+int \mbox{\hyperlink{decoder_8c_a9e3f4571a61373df151d8770dad8ccef}{read\+\_\+decoder}} ()
+\begin{DoxyCompactList}\small\item\em Returns decoded counter from motor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{decoder_8c_aa38dd57fa908146cc8c45e1188bed4b1}\label{decoder_8c_aa38dd57fa908146cc8c45e1188bed4b1}} 
+int \mbox{\hyperlink{decoder_8c_aa38dd57fa908146cc8c45e1188bed4b1}{counted\+\_\+to\+\_\+radians}} (int counted)
+\begin{DoxyCompactList}\small\item\em Converts counted value from decoder to radians. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{decoder_8c_a8ce98bc404bfbd9f7d6e56fc956a2760}\label{decoder_8c_a8ce98bc404bfbd9f7d6e56fc956a2760}} 
+struct timespec sleep\+\_\+time {\bfseries end\+\_\+time}
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-Module for decoder functions and helpers. 
+Module containing dec helper functions. 
 
 \begin{DoxyAuthor}{Author}
 Francisco Knebel, Luciano Zancan, Rodrigo Dal Ri 

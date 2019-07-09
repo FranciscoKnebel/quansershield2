@@ -1,0 +1,34 @@
+\hypertarget{signal__module_8c}{}\section{src/modules/signal\+\_\+module.c File Reference}
+\label{signal__module_8c}\index{src/modules/signal\_module.c@{src/modules/signal\_module.c}}
+
+
+Module containing H-\/bridge function helpers and manipulators.  
+
+
+{\ttfamily \#include $<$signal\+\_\+module.\+h$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{signal__module_8c_adb1a37faa77219e1add3c026597c3dec}\label{signal__module_8c_adb1a37faa77219e1add3c026597c3dec}} 
+void \mbox{\hyperlink{signal__module_8c_adb1a37faa77219e1add3c026597c3dec}{handle\+\_\+signal}} (int signal)
+\begin{DoxyCompactList}\small\item\em Standard handling for all signals. Will be called on S\+I\+G\+I\+NT, S\+I\+G\+T\+E\+RM and S\+I\+G\+K\+I\+LL. Will call callback defined by program, if defined. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{signal__module_8c_aac7cec352840353b32e4d61fce962e3e}\label{signal__module_8c_aac7cec352840353b32e4d61fce962e3e}} 
+void \mbox{\hyperlink{signal__module_8c_aac7cec352840353b32e4d61fce962e3e}{handle\+\_\+termination}} (int($\ast$callback)())
+\begin{DoxyCompactList}\small\item\em Define functions to use if program detects termination signals. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{signal__module_8c_a3c5c6a7d0e3d58b1ad0f53c8a2feec66}\label{signal__module_8c_a3c5c6a7d0e3d58b1ad0f53c8a2feec66}} 
+int($\ast$ {\bfseries cb} )() = N\+U\+LL
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Module containing H-\/bridge function helpers and manipulators. 
+
+\begin{DoxyAuthor}{Author}
+Francisco Knebel, Luciano Zancan, Rodrigo Dal Ri 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+06 Jul 2019 
+\end{DoxyDate}

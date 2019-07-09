@@ -18,7 +18,7 @@
  * @file quanser_volt_trajectory.c
  * @author Francisco Knebel, Luciano Zancan, Rodrigo Dal Ri
  * @date 26 Jun 2019
- * @brief Receive a voltage and sets PWM period and duty cycle.
+ * @brief Receive a voltage and sets PWM period and duty cycle. Has end of trajectory detections.
  */
 
 #include <quanser_pwm.h>

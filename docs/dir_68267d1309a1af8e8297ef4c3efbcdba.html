@@ -106,17 +106,29 @@ Directories</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
 Files</h2></td></tr>
-<tr class="memitem:quanser__elbow_8c"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quanser__elbow_8c.html">quanser_elbow.c</a> <a href="quanser__elbow_8c_source.html">[code]</a></td></tr>
-<tr class="memdesc:quanser__elbow_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detect if end of trajectory of elbow 1 and 2, and shoulder 1 and 2. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:quanser__motor_8c"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quanser__motor_8c.html">quanser_motor.c</a> <a href="quanser__motor_8c_source.html">[code]</a></td></tr>
-<tr class="memdesc:quanser__motor_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive voltage, calculate the duty cicle and set the movement of the elbow. <br /></td></tr>
+<tr class="memitem:quanser__decode_8c"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quanser__decode_8c.html">quanser_decode.c</a> <a href="quanser__decode_8c_source.html">[code]</a></td></tr>
+<tr class="memdesc:quanser__decode_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive a duty cycle for PWM and enable it. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:quanser__pid_8c"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quanser__pid_8c.html">quanser_pid.c</a> <a href="quanser__pid_8c_source.html">[code]</a></td></tr>
-<tr class="memdesc:quanser__pid_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run PID communication for reading the encoders. <br /></td></tr>
+<tr class="memdesc:quanser__pid_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">PID algorithm while reading the encoders and enabling motor. Has end of trajectory detections. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:quanser__pwm_8c"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quanser__pwm_8c.html">quanser_pwm.c</a> <a href="quanser__pwm_8c_source.html">[code]</a></td></tr>
-<tr class="memdesc:quanser__pwm_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive a duty cycle for PWM and enable it. <br /></td></tr>
+<tr class="memdesc:quanser__pwm_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive a voltage and enables PWM and bridge. Has end of trajectory detection. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:quanser__pwm__cycle_8c"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quanser__pwm__cycle_8c.html">quanser_pwm_cycle.c</a> <a href="quanser__pwm__cycle_8c_source.html">[code]</a></td></tr>
+<tr class="memdesc:quanser__pwm__cycle_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Program to cycle through PWM. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:quanser__testepin_8c"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quanser__testepin_8c.html">quanser_testepin.c</a> <a href="quanser__testepin_8c_source.html">[code]</a></td></tr>
+<tr class="memdesc:quanser__testepin_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive a gpio pin and tests it. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:quanser__trajectory_8c"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quanser__trajectory_8c.html">quanser_trajectory.c</a> <a href="quanser__trajectory_8c_source.html">[code]</a></td></tr>
+<tr class="memdesc:quanser__trajectory_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detect if end of trajectory of elbows 1 and 2, and shoulders 1 and 2. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:quanser__volt_8c"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quanser__volt_8c.html">quanser_volt.c</a> <a href="quanser__volt_8c_source.html">[code]</a></td></tr>
+<tr class="memdesc:quanser__volt_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive a voltage and sets PWM period and duty cycle. Does not detect end of trajectory. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:quanser__volt__trajectory_8c"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quanser__volt__trajectory_8c.html">quanser_volt_trajectory.c</a> <a href="quanser__volt__trajectory_8c_source.html">[code]</a></td></tr>
+<tr class="memdesc:quanser__volt__trajectory_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive a voltage and sets PWM period and duty cycle. Has end of trajectory detections. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
@@ -125,7 +137,7 @@ Files</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>
-    <li class="footer">Generated on Tue Jul 2 2019 16:30:57 for QuanserShield2 by
+    <li class="footer">Generated on Tue Jul 9 2019 16:05:12 for QuanserShield2 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>

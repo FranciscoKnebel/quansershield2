@@ -1,10 +1,9 @@
 var searchData=
 [
-  ['send_5ferror',['send_error',['../spi_8c.html#a80663046affbac79e2fd323f20b9c0cd',1,'send_error(const char *s):&#160;spi.c'],['../spi_8h.html#a80663046affbac79e2fd323f20b9c0cd',1,'send_error(const char *s):&#160;spi.c']]],
-  ['spi_2ec',['spi.c',['../spi_8c.html',1,'']]],
-  ['spi_2eh',['spi.h',['../spi_8h.html',1,'']]],
-  ['spi_5fclose',['spi_close',['../spi_8c.html#ac54b0dcdb1c3c7f2c652639ddebb58ce',1,'spi_close():&#160;spi.c'],['../spi_8h.html#ac54b0dcdb1c3c7f2c652639ddebb58ce',1,'spi_close():&#160;spi.c']]],
-  ['spi_5finit',['spi_init',['../spi_8c.html#a24d546e9f58c3777040725d7e1e23cfd',1,'spi_init():&#160;spi.c'],['../spi_8h.html#a24d546e9f58c3777040725d7e1e23cfd',1,'spi_init():&#160;spi.c']]],
-  ['spi_5fstat',['spi_stat',['../spi_8c.html#a07b8880e4c0569d3ce8c5753ab857dc6',1,'spi_stat():&#160;spi.c'],['../spi_8h.html#a07b8880e4c0569d3ce8c5753ab857dc6',1,'spi_stat():&#160;spi.c']]],
-  ['spi_5ftransfer',['spi_transfer',['../spi_8c.html#aa97f8a540b00bcfe195c41aa99945e12',1,'spi_transfer(uint8_t *tx, uint8_t *rx):&#160;spi.c'],['../spi_8h.html#aa97f8a540b00bcfe195c41aa99945e12',1,'spi_transfer(uint8_t *tx, uint8_t *rx):&#160;spi.c']]]
+  ['read_5farm',['read_arm',['../arm_8c.html#ab4faf0b17bf5b177cb418d00ee1a7e02',1,'read_arm(int i):&#160;arm.c'],['../arm_8h.html#ab4faf0b17bf5b177cb418d00ee1a7e02',1,'read_arm(int i):&#160;arm.c']]],
+  ['read_5fdecoder',['read_decoder',['../decoder_8c.html#a9e3f4571a61373df151d8770dad8ccef',1,'read_decoder():&#160;decoder.c'],['../decoder_8h.html#a9e3f4571a61373df151d8770dad8ccef',1,'read_decoder():&#160;decoder.c']]],
+  ['read_5fdecoder_5fgpio_5ffile',['read_decoder_gpio_file',['../decoder_8c.html#aeae81952d895dd6bacf077b8f85b9ee3',1,'decoder.c']]],
+  ['read_5ffile_5fend_5fof_5ftrajectory',['read_file_end_of_trajectory',['../arm_8c.html#a2f2419e5c96a77617091865457eb09d9',1,'read_file_end_of_trajectory(int gpio):&#160;arm.c'],['../arm_8h.html#a2f2419e5c96a77617091865457eb09d9',1,'read_file_end_of_trajectory(int gpio):&#160;arm.c']]],
+  ['read_5fgpio',['read_gpio',['../decoder_8c.html#a68662aee95d4890e8b2da82e5693b391',1,'decoder.c']]],
+  ['reset_5fdecoder',['reset_decoder',['../decoder_8c.html#a6f96acb613c3760ecf4814c03fe21ff0',1,'decoder.c']]]
 ];

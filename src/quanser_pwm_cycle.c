@@ -18,7 +18,7 @@
  * @file quanser_pwm_cycle.c
  * @author Francisco Knebel, Luciano Zancan, Rodrigo Dal Ri
  * @date 26 Jun 2019
- * @brief 0 to 100, really fast. Panic.
+ * @brief Program to cycle through PWM.
  */
 
 #include <quanser_pwm.h>

@@ -100,12 +100,47 @@ $(document).ready(function(){initNavTree('index.html','');});
 <div class="title">Quanser Shield v.2 </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Intel Galileo Gen 2 shield for use with the Quanser 2DSFJE robot.</p>
+<div class="textblock"><p>Intel Galileo Gen 2 shield for use with the Quanser 2DSFJE robot. Documentation can be found in the <code>docs/</code> folder or by accessing the link <a href="https://franciscoknebel.github.io/quansershield2/">https://franciscoknebel.github.io/quansershield2/</a>.</p>
 <h2>Prerequisites</h2>
 <ul>
 <li>Doxygen <div class="fragment"><div class="line">$ sudo apt install doxygen</div></div><!-- fragment --></li>
 <li>GCC</li>
 <li>Make</li>
+</ul>
+<h2>File Hierarchy</h2>
+<ul>
+<li>bin<ul>
+<li>Temporary folder for built program binaries.</li>
+</ul>
+</li>
+<li>docs<ul>
+<li>Project documentation, built with Doxygen.</li>
+</ul>
+</li>
+<li>ext<ul>
+<li>External files, used in documentation.</li>
+</ul>
+</li>
+<li>include<ul>
+<li>Header Files.</li>
+</ul>
+</li>
+<li>init<ul>
+<li>Intel Galileo <code>/etc/init.d</code> files to setup pins.</li>
+</ul>
+</li>
+<li>lib<ul>
+<li>Folder for storage of built library files.</li>
+</ul>
+</li>
+<li>scripts<ul>
+<li>Scripts used to automate project tasks.</li>
+</ul>
+</li>
+<li>src<ul>
+<li>Project source files.</li>
+</ul>
+</li>
 </ul>
 <h2>Makefile</h2>
 <h3>Project</h3>
@@ -115,7 +150,7 @@ $(document).ready(function(){initNavTree('index.html','');});
 </ul>
 <p>Don't forget to setup environment variables from <code>iss_setup.sh</code>;</p>
 <h3>Documentation</h3>
-<p>Compile the project documentation to <code>docs/</code> folder. </p><div class="fragment"><div class="line">$ doxygen</div></div><!-- fragment --><p>Then you can open the <code>docs/html/index.html</code> file and search the <code>Files</code> section for code documentation. To change the docs generation configuration, you need to install the <code>doxygen-gui</code> config and run: </p><div class="fragment"><div class="line">$ doxywizard Doxyfile</div></div><!-- fragment --><h2>Versioning</h2>
+<p>Compile the project documentation to <code>docs/</code> folder. </p><div class="fragment"><div class="line">$ doxygen</div></div><!-- fragment --><p>Then you can open the <code>docs/index.html</code> file and search the <code>Files</code> section for code documentation. To change the docs generation configuration, you need to install the <code>doxygen-gui</code> config and run: </p><div class="fragment"><div class="line">$ doxywizard Doxyfile</div></div><!-- fragment --><h2>Versioning</h2>
 <p>We use <a href="http://semver.org/">SemVer</a> for versioning. For the versions available, see the <a href="https://github.com/FranciscoKnebel/quansershield2/tags">tags on this repository</a>.</p>
 <h2>Authors</h2>
 <table style="text-align: center;">
@@ -143,7 +178,7 @@ $(document).ready(function(){initNavTree('index.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Jul 2 2019 16:30:57 for QuanserShield2 by
+    <li class="footer">Generated on Tue Jul 9 2019 16:05:12 for QuanserShield2 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>
