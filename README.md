@@ -75,7 +75,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
     <td>
       <img src="https://avatars.githubusercontent.com/lzancan?s=75">
       <br>
-      <a href="https://github.com/lzancan">Luciano Zancan</a>
+      <a href="https://github.com/lzancan">Luciano Zancan Mazzutti</a>
     </td>
     <td>
       <a href="https://github.com/FranciscoKnebel/quansershield2/commits?author=lzancan">Contributions</a> by lzancan
