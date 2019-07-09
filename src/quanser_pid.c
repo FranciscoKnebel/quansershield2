@@ -60,6 +60,9 @@ int main(int argc, char *argv[]) {
 
   handle_termination(&end);
 
+  // Set end of trajectory threads.
+  detect_endoftrajectory();
+
   last_count = counted_to_radians(read_decoder());
 
   while (1) {
@@ -70,10 +73,6 @@ int main(int argc, char *argv[]) {
 
     // Receives the position of the elbow in radians
     angular_position = angular_position + (count_angle_constant * delta_count);
-    // printf("angular position: %f\n", angular_position);
-    printf("last count: %d current_count %d\n", last_count, current_count);
-    // printf("constant: %f\n", count_angle_constant);
-    // printf("delta: %d\n", delta_count);
 
     error = reference_angular_position - angular_position;
     integral_error = integral_error + error * TIME_STEP;

@@ -24,5 +24,6 @@
   int detect_endoftrajectory_shoulder(int index);
   void read_arm(int i);
   int read_file_end_of_trajectory(int gpio);
+  void detect_endoftrajectory();
 
 #endif

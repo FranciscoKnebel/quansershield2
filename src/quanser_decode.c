@@ -35,51 +35,49 @@
  }
 
  int main(int argc, char const *argv[]) {
-   float voltage = 0.0;
-   int duty_cycle = 0;
-   int period = 0;
+  float voltage = 0.0;
+  int duty_cycle = 0;
+  int period = 0;
 
-   if (argc < 2) {
-     fprintf(stderr, "Usage: ./quanser_decode <voltage:int> ");
-     exit(1);
-   }
-   handle_termination(&end);
+  if (argc < 2) {
+    fprintf(stderr, "Usage: ./quanser_decode <voltage:int> ");
+    exit(1);
+  }
+  handle_termination(&end);
 
-   voltage = strtol(argv[1], NULL, 10);
-   period = calculate_period();
+  voltage = strtol(argv[1], NULL, 10);
+  period = calculate_period();
 
   detect_endoftrajectory_elbow(1);
   detect_endoftrajectory_elbow(2);
   detect_endoftrajectory_shoulder(1);
   detect_endoftrajectory_shoulder(2);
 
+  int counter = read_decoder();
+  int radians = counted_to_radians(counter);
+  printf("radians: %d\n", radians);
+  usleep(TIME_STEP);
 
-   int counter = read_decoder();
-   int radians = counted_to_radians(counter);
-   printf("radians: %d\n", radians);
-   usleep(TIME_STEP);
+  pwm_set_period(period);
+  h_bridge_enable();
+  pwm_enable();
 
-   pwm_set_period(period);
-   h_bridge_enable();
-   pwm_enable();
+  duty_cycle = calculate_duty_cycle(voltage, period);
+  pwm_set_duty_cycle(duty_cycle);
 
-   duty_cycle = calculate_duty_cycle(voltage, period);
-   pwm_set_duty_cycle(duty_cycle);
+  struct timespec sleep_time, end_time;
+  sleep_time.tv_sec = 1;
+  sleep_time.tv_nsec = 0;
+  nanosleep(&sleep_time, &end_time);
+  h_bridge_disable();
+  pwm_disable();
+
+  printf("LENDO DECODER NOVAMENTE\n");
+  counter = read_decoder();
+  radians = counted_to_radians(counter);
+  printf("radians: %d\n", radians);
 
   while (1);
 
-  //  struct timespec sleep_time, end_time;
-  //  sleep_time.tv_sec = 1;
-  //  sleep_time.tv_nsec = 0; //1000 ns = 1 us
-  //  nanosleep(&sleep_time, &end_time);
-  //  h_bridge_disable();
-  //  pwm_disable();
-   
-  //  // usleep(TIME_STEP);
-  //  printf("LENDO DECODER NOVAMENTE\n");
-  //  counter = read_decoder();
-  //  radians = counted_to_radians(counter);
-  //  printf("radians: %d\n", radians);
-
-   return 0;
+  return 0;
  }

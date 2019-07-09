@@ -15,7 +15,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
- * @file quanser_pwm_rising.c
+ * @file quanser_pwm_cycle.c
  * @author Francisco Knebel, Luciano Zancan, Rodrigo Dal Ri
  * @date 26 Jun 2019
  * @brief 0 to 100, really fast. Panic.
@@ -24,7 +24,7 @@
 #include <quanser_pwm.h>
 
 int end(int sig) {
-  printf("Ending 'quanser_pwm_rising.c'\n");
+  printf("Ending 'quanser_pwm_cycle.c'\n");
 
   pwm_disable();
   h_bridge_disable();
@@ -39,6 +39,7 @@ int main(int argc, char const *argv[]) {
   int direction;
 
   handle_termination(&end);
+  detect_endoftrajectory();
 
   period = calculate_period();
   pwm_set_period(period);

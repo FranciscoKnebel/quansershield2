@@ -48,7 +48,7 @@ int detect_endoftrajectory_shoulder(int index) {
 }
 
 /**
- * @brief Read value of arm element and returns if finished (0) or  not (1)
+ * @brief Creates threads to detect end of trajectory for elbow or shoulder.
  */
 void read_arm(int i) {
   pthread_t thread;
@@ -71,7 +71,7 @@ void read_arm(int i) {
 
 
 /**
-* @brief Read GPIO file and waits for interrupt, for use with end of trajectory.
+* @brief Read GPIO file and waits for interrupt, for use with end of trajectory. Disables PWM and H_bridge when reached.
 **/
 int read_file_end_of_trajectory(int gpio) {
   char str[100];
@@ -105,4 +105,14 @@ int read_file_end_of_trajectory(int gpio) {
   close(pfd.fd);
 
   return 0;
+}
+
+/**
+* @brief Set all threads to detect end of trajectory in both shoulder and elbow.
+**/
+void detect_endoftrajectory() {
+  detect_endoftrajectory_elbow(1);
+  detect_endoftrajectory_elbow(2);
+  detect_endoftrajectory_shoulder(1);
+  detect_endoftrajectory_shoulder(2);
 }

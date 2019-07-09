@@ -45,10 +45,7 @@ int main(int argc, char const *argv[]) {
   handle_termination(&end);
 
   // Set end of trajectory threads.
-  detect_endoftrajectory_elbow(1);
-  detect_endoftrajectory_elbow(2);
-  detect_endoftrajectory_shoulder(1);
-  detect_endoftrajectory_shoulder(2);
+  detect_endoftrajectory();
 
   voltage = strtol(argv[1], NULL, 10);
   period = calculate_period();
