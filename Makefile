@@ -1,5 +1,5 @@
 # Quanser Shield v.2
-# Copyright (C) 2019 Francisco Knebel, Luciano Zancan, Rodrigo Dal Ri
+# Copyright (C) 2019 Francisco Knebel, Luciano Zancan Mazzutti, Rodrigo Dal Ri
 
 # Main target programs
 TARGET_LIST = quanser_pwm quanser_testepin quanser_volt quanser_pwm_cycle quanser_decode quanser_pid quanser_trajectory quanser_volt_trajectory

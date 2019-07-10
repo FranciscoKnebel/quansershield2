@@ -1,6 +1,6 @@
 /**
  * @file signal_module.h
- * @author Francisco Knebel, Luciano Zancan, Rodrigo Dal Ri
+ * @author Francisco Knebel, Luciano Zancan Mazzutti, Rodrigo Dal Ri
  * @date 06 Jul 2019
  * @brief Module containing signal handling functions.
  */

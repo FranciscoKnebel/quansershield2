@@ -1,5 +1,5 @@
 \// Quanser Shield v.2
-// Copyright (C) 2019 Francisco Knebel, Luciano Zancan, Rodrigo Dal Ri
+// Copyright (C) 2019 Francisco Knebel, Luciano Zancan Mazzutti, Rodrigo Dal Ri
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -16,7 +16,7 @@
 
 /**
  * @file modules/arm.c
- * @author Francisco Knebel, Luciano Zancan, Rodrigo Dal Ri
+ * @author Francisco Knebel, Luciano Zancan Mazzutti, Rodrigo Dal Ri
  * @date 26 Jun 2019
  * @brief Module containing arm helper functions.
  */

@@ -1,6 +1,6 @@
 /**
  * @file h_bridge.h
- * @author Francisco Knebel, Luciano Zancan, Rodrigo Dal Ri
+ * @author Francisco Knebel, Luciano Zancan Mazzutti, Rodrigo Dal Ri
  * @date 26 Jun 2019
  * @brief Header for the H-bridge module, containing H-bridge function helpers
  * and manipulators.

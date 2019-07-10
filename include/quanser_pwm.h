@@ -1,6 +1,6 @@
 /**
  * @file quanser_pwm.h
- * @author Francisco Knebel, Luciano Zancan, Rodrigo Dal Ri
+ * @author Francisco Knebel, Luciano Zancan Mazzutti, Rodrigo Dal Ri
  * @date 26 Jun 2019
  * @brief Module containing functions with use for PWM program.
  */

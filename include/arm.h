@@ -1,6 +1,6 @@
 /**
  * @file arm.h
- * @author Francisco Knebel, Luciano Zancan, Rodrigo Dal Ri
+ * @author Francisco Knebel, Luciano Zancan Mazzutti, Rodrigo Dal Ri
  * @date 26 Jun 2019
  * @brief Header for the arm module, containing arm function helpers and
  * manipulators.
