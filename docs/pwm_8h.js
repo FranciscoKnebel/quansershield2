@@ -1,7 +1,6 @@
 var pwm_8h =
 [
     [ "FREQ_MAX", "pwm_8h.html#a94163a2b46e66d27bede4639532eed5c", null ],
-    [ "PWM_PERIOD", "pwm_8h.html#aacaca0988244bd3a888ca5befa89f44b", null ],
     [ "TIME_STEP", "pwm_8h.html#a65fd90f232757535f02c46a885e49012", null ],
     [ "VOLT_MAX", "pwm_8h.html#a8bcc4b483761bdaacbd040d2e49be549", null ],
     [ "calculate_duty_cycle", "pwm_8h.html#a46ed62c647a29cdb3aa09e0eb289e1de", null ],
