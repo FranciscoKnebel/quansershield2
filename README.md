@@ -15,6 +15,8 @@ Documentation can be found in the `docs/` folder or by accessing the link [https
 ## File Hierarchy
 - bin
   - Temporary folder for built program binaries.
+- Boards & Schematics
+  - Folder containing project Gerbers, Netlist, Bill of Materials and schematics.
 - docs
   - Project documentation, built with Doxygen.
 - ext

@@ -22,8 +22,15 @@
  */
 
 #include <decoder.h>
+
+/**
+* @brief Constant of PI, used in converting decoded value to radians.
+*/
 #define PI 3.14159265358979323846
 
+/**
+* @brief xsleep() variables where sleep time is defined.
+*/
 struct timespec sleep_time, end_time;
 
 /**

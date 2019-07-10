@@ -23,6 +23,10 @@
 
 #include <pwm.h>
 #include <h_bridge.h>
+
+/**
+ * @brief Buffer variable used in PWM module functions.
+ */
 char str[100];
 
 /**

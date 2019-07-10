@@ -22,10 +22,23 @@ int set_pwm(int period, int duty_cycle);
 int calculate_period();
 int calculate_duty_cycle(float voltage, int period);
 
+/**
+* @brief Time step used in sleep functions.
+*/
 #define TIME_STEP 10000
+/**
+* @brief PWM signal period.
+*/
 #define PWM_PERIOD 1500000
 
+/**
+* @brief Frequency used for duty cycle calculation.
+*/
 #define FREQ_MAX 1500
+
+/**
+* @brief Max voltage defineable in user programs.
+*/
 #define VOLT_MAX 27
 
 #endif
