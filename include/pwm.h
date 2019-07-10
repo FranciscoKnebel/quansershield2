@@ -26,10 +26,6 @@ int calculate_duty_cycle(float voltage, int period);
 * @brief Time step used in sleep functions.
 */
 #define TIME_STEP 10000
-/**
-* @brief PWM signal period.
-*/
-#define PWM_PERIOD 1500000
 
 /**
 * @brief Frequency used for duty cycle calculation.
