@@ -52,7 +52,7 @@ int main(int argc, char const *argv[]) {
     voltage += 1 * direction;
     duty_cycle = calculate_duty_cycle(voltage, period);
     pwm_set_duty_cycle(duty_cycle);
-    usleep(TIME_STEP*20);
+    usleep(TIME_STEP);
 
     if (fabs(voltage) > VOLT_MAX) {
       printf("chegou a max velocidade: %f\n", voltage);
